@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public static class ServerConst
 {
-    public const string HOST = "lsydisk.synology.me";
-    public const string PORT = "3306";
-    public const string DATABASE = "TestDataBase";
-    public const string ID = "ha4113";
-    public const string PW = "LSYsang230!";
+    private static readonly Dictionary<DB, string> _dbConfigList = new Dictionary<DB, string>();
 
-    private static Dictionary<Type, string> _tableNames = new Dictionary<Type, string>
+    public static string GetConfig(this DB dbType)
     {
-        { typeof(AccountModel), "money" },
-        //{ typeof(ItemRowData), "item" },
-    };
-
-    public static bool TryGetTableName<T>(out string data) where T : IDBModel
+        _dbConfigList.TryGetValue(dbType, out var str);
+        return str;
+    }
+    
+    public static void RegistDBConfig(DB dbType, string dbConfig)
     {
-        return _tableNames.TryGetValue(typeof(T), out data);
+        _dbConfigList.Add(dbType, dbConfig);
     }
 }

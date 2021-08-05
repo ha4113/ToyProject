@@ -19,8 +19,13 @@ namespace WebApiServer.Controllers
         }
 
         [HttpPost]
-        public async void Get()
+        public async Task<AccountModel.WakeTimeType> GetWakeType(long id)
         {
+            using (var dbConn = await DBConnection.Connect(_logger, DB.ACCOUNT.GetConfig()))
+            {
+                var accountModel = await dbConn.GetData<AccountModel>(id);
+                return accountModel.WakeType;
+            }
         }
     }
 }

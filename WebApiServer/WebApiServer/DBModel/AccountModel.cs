@@ -1,10 +1,14 @@
-﻿public class AccountModel : IDBModel
+﻿[DBTable(DB.ACCOUNT, "account")]
+public class AccountModel : IDBModel
 {
-    public long id { get; set; }
-    public byte wake_time_type { get; set; }
-
-    public override string ToString()
+    public enum WakeTimeType : byte
     {
-        return $"Id = {id} / WakeTimeType = {wake_time_type}";
+        NONE = 0,
+        NINE = 9,
+        TEN = 10,
     }
+    [DBColumn("id", typeof(long))]
+    public long Id { get; set; }
+    [DBColumn("wake_time_type", typeof(byte))]
+    public WakeTimeType WakeType { get; set; }
 }

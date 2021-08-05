@@ -14,3 +14,9 @@ public enum MoneyType
     DIA,
     SILVER,
 }
+
+public enum DB
+{
+    NONE = 0,
+    ACCOUNT,
+}
