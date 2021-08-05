@@ -30,17 +30,16 @@ namespace WebApiServer
             
             Log("Complete!", LogType.HIGHLIGHT);
 
-            var moneyDataList = MakeData<MoneyRowData>();
-            //var itemDataList = MakeData<ItemRowData>();
+            var dataList = MakeData<AccountModel>();
 
-            foreach (var data in moneyDataList)
+            foreach (var data in dataList)
             {
                 Log(data.ToString(), LogType.HIGHLIGHT);
             }
         }
 
         private List<T> MakeData<T>()
-            where T : class, IRowData, new()
+            where T : class, IDBModel, new()
         {
             if (ServerConst.TryGetTableName<T>(out var tableName) == false)
             {
