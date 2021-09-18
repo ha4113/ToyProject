@@ -21,23 +21,23 @@ namespace WebApiServer.DBProtocol
             _connection = new MySqlConnection(dbType.GetConfig());
         }
 
-        public static async Task<T> Connect<T>(ILogger<WakeController> logger, long id)
-            where T : class, IDBSchema, new()
+        public static async Task<User> Connect(ILogger<WakeController> logger, long id)
         {
-            var dbTableAttr = typeof(T).GetCustomAttribute<DBTable>();
-
-            if (dbTableAttr == null)
+            // TODO : 샤딩 체크
+            // 필요한 DB 연결
+            
+            var user = new User(id);
+            var dbList = Enum.GetValues<DB>();
+            
+            foreach (var db in dbList)
             {
-                logger.Log(LogLevel.Critical, $"Not Define Table Attr : {typeof(T)}");
-                return null;
+                user.RegistDB(db, new DBConnection(logger, db));    
             }
 
-            var dbConnection = new DBConnection(logger, dbTableAttr.DBType);
-            await dbConnection._connection.OpenAsync();
-            return await dbConnection.GetData<T>(id);
+            return user;
         }
 
-        private async Task<T> GetData<T>(long id)
+        public async Task<T> GetData<T>(long id)
             where T : class, IDBSchema, new()
         {
             var dbTableAttr = typeof(T).GetCustomAttribute<DBTable>();
@@ -59,6 +59,7 @@ namespace WebApiServer.DBProtocol
             Log(LogLevel.Information,"=========================Connection=========================");
             
             var dataTable = new DataTable();
+            await _connection.OpenAsync();
             var dataAdapter = new MySqlDataAdapter(command, _connection);
             await dataAdapter.FillAsync(dataTable);
 

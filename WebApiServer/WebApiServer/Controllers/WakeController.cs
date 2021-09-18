@@ -24,7 +24,8 @@ namespace WebApiServer.Controllers
             // 편집여부 확인
             // 편집되었다면 DB에 기록
             
-            var account = await DBConnection.Connect<Account>(_logger, id);
+            var user = await DBConnection.Connect(_logger, id);
+            var account = await user.Get<Account>();
             return account.WakeType;
         }
     }

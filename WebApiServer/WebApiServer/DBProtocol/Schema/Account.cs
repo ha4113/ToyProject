@@ -2,12 +2,25 @@
 
 namespace WebApiServer.DBProtocol.Schema
 {
-    [DBTable(DB.MAIN, "account")]
-    public class Account : IDBSchema
+    public interface IReadOnlyAccount : IReadOnlyDBSchema
     {
-        [DBColumn("id", typeof(long))]
-        public long Id { get; }
-        [DBColumn("wake_time_type", typeof(byte))]
+        public byte WakeType { get; }
+    }
+    [DBTable(DB.MAIN, Table.ACCOUNT)]
+    public class Account : IDBSchema, IReadOnlyDBSchema
+    {
+        [DBColumn("id")]
+        public long Id { get; private init; }
+        [DBColumn("wake_time_type")]
         public byte WakeType { get; set; }
+
+        public IReadOnlyDBSchema DeepCopy()
+        {
+            return new Account
+            {
+                Id = Id, 
+                WakeType = WakeType,
+            };
+        }
     }
 }

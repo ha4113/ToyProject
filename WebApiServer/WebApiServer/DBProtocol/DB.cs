@@ -6,4 +6,8 @@ namespace WebApiServer.DBProtocol
     {
         [StringValue("LsyDataBase")] MAIN,
     }
+    public enum Table
+    {
+        [StringValue("account")] ACCOUNT,
+    }
 }
