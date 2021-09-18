@@ -1971,6 +1971,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Protocol/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Protocol.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Protocol.dll": {}
+        }
       }
     }
   },
@@ -6693,6 +6703,11 @@
         "system.xml.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xmldocument.nuspec"
       ]
+    },
+    "Protocol/1.0.0": {
+      "type": "project",
+      "path": "../Protocol/Protocol.csproj",
+      "msbuildProject": "../Protocol/Protocol.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6702,6 +6717,7 @@
       "MySql.Data >= 8.0.25",
       "Newtonsoft.Json >= 13.0.1",
       "ORM >= 0.0.1",
+      "Protocol >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -6711,11 +6727,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ha411\\Project\\WebApi\\WebApiServer\\WebApiServer\\WebApiServer.csproj",
+      "projectUniqueName": "E:\\Project\\WebApi\\WebApiServer\\WebApiServer\\WebApiServer.csproj",
       "projectName": "WebApiServer",
-      "projectPath": "C:\\Users\\ha411\\Project\\WebApi\\WebApiServer\\WebApiServer\\WebApiServer.csproj",
+      "projectPath": "E:\\Project\\WebApi\\WebApiServer\\WebApiServer\\WebApiServer.csproj",
       "packagesPath": "C:\\Users\\ha411\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ha411\\Project\\WebApi\\WebApiServer\\WebApiServer\\obj\\",
+      "outputPath": "E:\\Project\\WebApi\\WebApiServer\\WebApiServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ha411\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6731,7 +6747,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj": {
+              "projectPath": "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

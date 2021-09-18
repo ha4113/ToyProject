@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using CommandLine;
+using WebApiServer.DBProtocol;
 
 namespace WebApiServer
 {
@@ -43,8 +44,14 @@ namespace WebApiServer
 
                 _configurationRoot = configBuilder.Build();
                 var dbConfig = _configurationRoot.GetSection("Database");
-                ServerConst.RegistDBConfig(DB.ACCOUNT, dbConfig.GetValue<string>("Account"));
+                var dbBase = dbConfig.GetValue<string>("base");
+                var dbArg = Enum.GetValues<DB>();
+                foreach (var db in dbArg)
+                {
+                    DBConnectionConfig.RegistDBConfig(db, dbBase);    
+                }
             }
+            
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
@@ -54,7 +61,6 @@ namespace WebApiServer
                 if (_isPlatformWindows)
                 {
                     Console.WriteLine("Press any key End....");
-                    Console.ReadKey();
                 }
             }
             

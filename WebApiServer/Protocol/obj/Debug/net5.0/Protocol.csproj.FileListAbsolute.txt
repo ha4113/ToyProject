@@ -1,0 +1,12 @@
+E:\Project\WebApi\WebApiServer\Protocol\bin\Debug\net5.0\Protocol.deps.json
+E:\Project\WebApi\WebApiServer\Protocol\bin\Debug\net5.0\Protocol.dll
+E:\Project\WebApi\WebApiServer\Protocol\bin\Debug\net5.0\ref\Protocol.dll
+E:\Project\WebApi\WebApiServer\Protocol\bin\Debug\net5.0\Protocol.pdb
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.csproj.AssemblyReference.cache
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.AssemblyInfoInputs.cache
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.AssemblyInfo.cs
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.csproj.CoreCompileInputs.cache
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.dll
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\ref\Protocol.dll
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.pdb

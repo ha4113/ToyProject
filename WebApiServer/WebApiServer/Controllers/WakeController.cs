@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using WebApiServer.DBProtocol;
+using WebApiServer.DBProtocol.Schema;
 
 namespace WebApiServer.Controllers
 {
@@ -19,13 +18,14 @@ namespace WebApiServer.Controllers
         }
 
         [HttpPost]
-        public async Task<AccountModel.WakeTimeType> GetWakeType(long id)
+        public async Task<byte> GetWakeType(long id)
         {
-            using (var dbConn = await DBConnection.Connect(_logger, DB.ACCOUNT.GetConfig()))
-            {
-                var accountModel = await dbConn.GetData<AccountModel>(id);
-                return accountModel.WakeType;
-            }
+            // 필요한 DB의 사본 제공
+            // 편집여부 확인
+            // 편집되었다면 DB에 기록
+            
+            var account = await DBConnection.Connect<Account>(_logger, id);
+            return account.WakeType;
         }
     }
 }
