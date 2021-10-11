@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using WebApiServer.Attribute;
-using WebApiServer.Controllers;
 
 namespace WebApiServer.DBProtocol
 {
     public class DBConnection : IDisposable
     {
-        private ILogger<WakeController> _logger;
         private MySqlConnection _connection;
-        
-        private DBConnection(ILogger<WakeController> logger, DB dbType)
+
+        public DBConnection(DB dbType)
         {
-            _logger = logger;
             _connection = new MySqlConnection(dbType.GetConfig());
         }
 
-        public static async Task<User> Connect(ILogger<WakeController> logger, long id)
+        public static User Connect(long id)
         {
             // TODO : 샤딩 체크
             // 필요한 DB 연결
@@ -31,36 +27,35 @@ namespace WebApiServer.DBProtocol
             
             foreach (var db in dbList)
             {
-                user.RegistDB(db, new DBConnection(logger, db));    
+                user.RegistDB(db, new DBConnection(db));
             }
 
             return user;
         }
 
         public async Task<T> GetData<T>(long id)
-            where T : class, IDBSchema, new()
+            where T : class, IDBModel, new()
         {
             var dbTableAttr = typeof(T).GetCustomAttribute<DBTable>();
 
             if (dbTableAttr == null)
             {
-                Log(LogLevel.Critical, $"Not Define Table Attr : {typeof(T)}");
                 return null;
             }
 
             var dbConfig = dbTableAttr.DBType.GetConfig();
             if (dbConfig == default)
             {
-                Log(LogLevel.Critical, $"Not Define Table Name : {typeof(T)}");
                 return null;
             }
 
             var command = $"SELECT * FROM {dbTableAttr.TableName} WHERE id={id}";
-            Log(LogLevel.Information,"=========================Connection=========================");
-            
             var dataTable = new DataTable();
+            
             await _connection.OpenAsync();
+            
             var dataAdapter = new MySqlDataAdapter(command, _connection);
+            
             await dataAdapter.FillAsync(dataTable);
 
             var tableColumns = new List<int>();
@@ -68,11 +63,12 @@ namespace WebApiServer.DBProtocol
             {
                 tableColumns.Add(column.ColumnName.GetHashCode());
             }
+            
 
             foreach (DataRow row in dataTable.Rows)
             {
                 var selectData = new T();
-                for (var i = 0; i < row.ItemArray.Length; ++i)
+                for (var i = 0; i < tableColumns.Count; ++i)
                 {
                     var columnName = tableColumns[i];
                     var data = row.ItemArray[i];
@@ -83,25 +79,30 @@ namespace WebApiServer.DBProtocol
                         var dbColumn = propertyInfo.GetCustomAttribute<DBColumn>();
                         if (dbColumn != null && dbColumn.ColumnNameHash == columnName)
                         {
-                            propertyInfo.SetValue(selectData, data);
+                            switch (dbColumn.ColumnType)
+                            {
+                            case ColumnType.NONE:
+                                {
+                                    propertyInfo.SetValue(selectData, data);
+                                }        
+                                break;
+                            case ColumnType.KEY:
+                                {
+                                    propertyInfo.SetValue(selectData, data);
+                                }         
+                                break;
+                            case ColumnType.PRIMARY_KEY:
+                                {
+                                    propertyInfo.SetValue(selectData, data);
+                                } 
+                                break;
+                            }
                         }
                     }
                 }
-
-                if (selectData.Id == id)
-                {
-                    return selectData;
-                }
             }
 
-            Log(LogLevel.Information, "=========================Disconnect=========================");
             return null;
-        }
-
-        private void Log(LogLevel logLevel, string log)
-        {
-            _logger.Log(logLevel, log);
-            // _log?.Invoke(log, logType);
         }
 
         public async void Dispose()

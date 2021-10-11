@@ -4,6 +4,60 @@
     "E:\\Project\\WebApi\\WebApiServer\\WebApiServer\\WebApiServer.csproj": {}
   },
   "projects": {
+    "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj",
+        "projectName": "Core",
+        "projectPath": "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\ha411\\.nuget\\packages\\",
+        "outputPath": "E:\\Project\\WebApi\\WebApiServer\\Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ha411\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +81,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj": {
+                "projectPath": "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -82,6 +140,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj": {
+                "projectPath": "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj"
+              },
               "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj": {
                 "projectPath": "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj"
               }
@@ -118,9 +179,21 @@
               "target": "Package",
               "version": "[0.0.1, )"
             },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.11.0-dev-01371, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.2.50, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "Utf8Json": {
+              "target": "Package",
+              "version": "[1.3.7, )"
             }
           },
           "imports": [

@@ -1,4 +1,5 @@
-﻿using WebApiServer.Attribute;
+﻿using Common.Core.Util;
+using WebApiServer.Attribute;
 
 namespace WebApiServer.DBProtocol
 {
@@ -6,6 +7,7 @@ namespace WebApiServer.DBProtocol
     {
         [StringValue("LsyDataBase")] MAIN,
     }
+    
     public enum Table
     {
         [StringValue("account")] ACCOUNT,

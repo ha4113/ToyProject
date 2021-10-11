@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using WebApiServer.Attribute;
 
 namespace WebApiServer.DBProtocol
 {
-    public class User
+    public class User : IDisposable
     {
         private readonly long _id;
         private readonly Dictionary<DB, DBConnection> _dbConnections = new Dictionary<DB, DBConnection>();
-        private readonly Dictionary<Table, IDBSchema> _currModel = new Dictionary<Table, IDBSchema>();
-        private readonly Dictionary<Table, IReadOnlyDBSchema> _prevModel = new Dictionary<Table, IReadOnlyDBSchema>();
         
         public User(long id) { _id = id; }
 
@@ -19,7 +18,7 @@ namespace WebApiServer.DBProtocol
             _dbConnections.Add(db, conn);
         } 
         
-        public async Task<T> Get<T>() where T : class, IDBSchema, new()
+        public async Task<T> GetModel<T>() where T : class, IDBModel, new()
         {
             var dbTableAttr = typeof(T).GetCustomAttribute<DBTable>();
             if (dbTableAttr == null)
@@ -32,14 +31,22 @@ namespace WebApiServer.DBProtocol
                 return null;
             }
 
-            if (!_currModel.TryGetValue(dbTableAttr.Table, out var model))
-            {
-                model = await conn.GetData<T>(_id);
-                _currModel.Add(dbTableAttr.Table, model);
-                _prevModel.Add(dbTableAttr.Table, model.DeepCopy());
-            }
+            return await conn.GetData<T>(_id);
+        }
 
-            return model as T;
+        public async Task CommitAsync()
+        {
+            
+        }
+        
+        public void Dispose()
+        {
+            foreach (var kvp in _dbConnections)
+            {
+                kvp.Value.Dispose();
+            }
+            
+            _dbConnections.Clear();
         }
     }
 }

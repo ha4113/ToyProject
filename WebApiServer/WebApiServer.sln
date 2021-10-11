@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{6DF4CD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocol", "Protocol\Protocol.csproj", "{99BD7BC5-B624-41A9-BA9E-04A7FA52AF8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{CEC27B86-BAD0-4794-A022-354A46819493}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{99BD7BC5-B624-41A9-BA9E-04A7FA52AF8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BD7BC5-B624-41A9-BA9E-04A7FA52AF8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BD7BC5-B624-41A9-BA9E-04A7FA52AF8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC27B86-BAD0-4794-A022-354A46819493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC27B86-BAD0-4794-A022-354A46819493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC27B86-BAD0-4794-A022-354A46819493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC27B86-BAD0-4794-A022-354A46819493}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +38,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{99BD7BC5-B624-41A9-BA9E-04A7FA52AF8F} = {6DF4CDB9-4A27-49AD-82F0-06C77ACCF91C}
+		{CEC27B86-BAD0-4794-A022-354A46819493} = {6DF4CDB9-4A27-49AD-82F0-06C77ACCF91C}
 	EndGlobalSection
 EndGlobal

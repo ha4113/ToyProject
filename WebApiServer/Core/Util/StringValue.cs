@@ -1,4 +1,4 @@
-﻿namespace WebApiServer.Attribute
+﻿namespace Common.Core.Util
 {
     public class StringValue : System.Attribute
     {

@@ -10,3 +10,6 @@ E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.csproj.CoreCom
 E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.dll
 E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\ref\Protocol.dll
 E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.pdb
+E:\Project\WebApi\WebApiServer\Protocol\bin\Debug\net5.0\Core.dll
+E:\Project\WebApi\WebApiServer\Protocol\bin\Debug\net5.0\Core.pdb
+E:\Project\WebApi\WebApiServer\Protocol\obj\Debug\net5.0\Protocol.csproj.CopyComplete

@@ -6,11 +6,13 @@ using System.IO;
 using System.Reflection;
 using CommandLine;
 using WebApiServer.DBProtocol;
+using WebApiServer.Utility;
 
 namespace WebApiServer
 {
     public class Program
     {
+        public static bool UseCheat;
         private static IConfigurationRoot _configurationRoot;
         private static string _environmentalAppsettings;
         private static bool _isPlatformWindows;
@@ -46,10 +48,14 @@ namespace WebApiServer
                 var dbConfig = _configurationRoot.GetSection("Database");
                 var dbBase = dbConfig.GetValue<string>("base");
                 var dbArg = Enum.GetValues<DB>();
+                
                 foreach (var db in dbArg)
                 {
                     DBConnectionConfig.RegistDBConfig(db, dbBase);    
                 }
+                                
+                var redisConfig = _configurationRoot.GetSection("Redis");
+                RedisUserData.Instance.Initialize(redisConfig);
             }
             
             catch (Exception ex)
