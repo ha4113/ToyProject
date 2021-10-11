@@ -1,7 +1,8 @@
 ﻿using Common.Core.Util;
-using WebApiServer.DBProtocol;
+using Server.DBProtocol;
+using Server.Enums;
 
-namespace WebApiServer.Attribute
+namespace Server.Attribute
 {
     public class DBTableAttribute : System.Attribute
     {

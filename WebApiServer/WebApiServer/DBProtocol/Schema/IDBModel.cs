@@ -1,4 +1,4 @@
-﻿namespace WebApiServer.DBProtocol
+﻿namespace Server.DBProtocol.Schema
 {
     public interface IDBModel
     {

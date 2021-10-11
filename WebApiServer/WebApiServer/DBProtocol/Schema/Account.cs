@@ -1,6 +1,7 @@
-﻿using WebApiServer.Attribute;
+﻿using Server.Attribute;
+using Server.Enums;
 
-namespace WebApiServer.DBProtocol.Schema
+namespace Server.DBProtocol.Schema
 {
     [DBTable(DB.MAIN, Table.ACCOUNT)]
     public class Account : IDBModel

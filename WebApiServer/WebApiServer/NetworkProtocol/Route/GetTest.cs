@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Common.Protocol.Enums;
 using Common.Protocol.Network;
-using WebApiServer.DBProtocol;
-using WebApiServer.DBProtocol.Schema;
+using Server.DBProtocol;
+using Server.DBProtocol.Schema;
 
-namespace WebApiServer.Route
+namespace Server.NetworkProtocol.Route
 {
     public class GetTest : RouteAction<GetTestReq,GetTestAck>
     {

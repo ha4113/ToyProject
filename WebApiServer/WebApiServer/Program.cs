@@ -5,9 +5,10 @@ using System;
 using System.IO;
 using System.Reflection;
 using CommandLine;
-using WebApiServer.DBProtocol;
+using Server.DBProtocol;
+using Server.Enums;
 
-namespace WebApiServer
+namespace Server
 {
     public class Program
     {
@@ -40,7 +41,6 @@ namespace WebApiServer
                     _environmentalAppsettings = $"appsettings.{option.Environment}.json";
 
                     configBuilder.AddJsonFile(_environmentalAppsettings, true, true);
-                    Console.WriteLine($"TDSWebAPI Environment : {option.Environment}");
                 }
 
                 _configurationRoot = configBuilder.Build();

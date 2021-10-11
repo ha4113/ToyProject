@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
-using WebApiServer.Attribute;
+using Server.Attribute;
+using Server.DBProtocol.Schema;
+using Server.Enums;
 
-namespace WebApiServer.DBProtocol
+namespace Server.DBProtocol
 {
     public class User : IDisposable
     {

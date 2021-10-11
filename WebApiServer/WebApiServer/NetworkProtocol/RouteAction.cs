@@ -1,58 +1,19 @@
 ﻿using System;
-using System.Reflection;
 using System.Threading.Tasks;
-using Common.Protocol.Attributes;
 using Common.Protocol.Enums;
 using Common.Protocol.Network;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using WebApiServer.DBProtocol;
-using WebApiServer.Enums;
-using WebApiServer.Interface;
-using WebApiServer.Util;
+using Server.DBProtocol;
+using Server.Enums;
+using Server.Util;
 
-namespace WebApiServer.Route
+namespace Server.NetworkProtocol
 {
-    public static class RoutingRegisterer
+    public interface IRouteAction
     {
-        public static void MapCustomRoutes(this IEndpointRouteBuilder builder)
-        {
-            var baseType = typeof(IRouteAction);
-            foreach (var type in baseType.Assembly.GetTypes())
-            {
-                if (type.IsInterface || type.IsAbstract)
-                {
-                    continue;
-                }
-
-                if (baseType.IsAssignableFrom(type) == false)
-                {
-                    continue;
-                }
-
-                var actionCreator = new Func<IRouteAction>(() => Activator.CreateInstance(type) as IRouteAction);
-                var templateAction = actionCreator();
-                if (templateAction == null)
-                {
-                    continue;
-                }
-
-                var reqType = templateAction.GetReqType();
-                var tdReqAttr = reqType.GetCustomAttribute<ReqAttribute>();
-                if (tdReqAttr == null)
-                {
-                    continue;
-                }
-
-                var api = tdReqAttr.Api;
-                builder.Map(api, async httpContext =>
-                {
-                    var action = actionCreator();
-                    await action.Run(httpContext);
-                });
-            }
-        }
+        Type GetReqType();
+        Type GetAckType();
+        Task Run(HttpContext httpContext);
     }
     
     public abstract class RouteAction<TReq, TAck> : IRouteAction
@@ -85,7 +46,7 @@ namespace WebApiServer.Route
                 return;
             }
 
-            var (req, _) = await Reader.ReadReqAsync<TReq>(httpContext);
+            var (req, _) = await RoutingReader.ReadReqAsync<TReq>(httpContext);
             if (req == null)
             {
                 await httpContext.SendErrorResponse(ResponseResult.BadRequest).ConfigureAwait(false);
@@ -149,7 +110,7 @@ namespace WebApiServer.Route
                     }
 
                     // 요청의 응답을 보낸다.
-                    await Reader.WriteAckAsync(httpContext, ack);
+                    await RoutingReader.WriteAckAsync(httpContext, ack);
                 }
             }
             finally

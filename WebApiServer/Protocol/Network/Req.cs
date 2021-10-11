@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Common.Protocol.Attributes;
 
 namespace Common.Protocol.Network

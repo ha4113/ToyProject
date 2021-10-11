@@ -4,9 +4,11 @@ using System.Data;
 using System.Reflection;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using WebApiServer.Attribute;
+using Server.Attribute;
+using Server.DBProtocol.Schema;
+using Server.Enums;
 
-namespace WebApiServer.DBProtocol
+namespace Server.DBProtocol
 {
     public class DBConnection : IDisposable
     {

@@ -2,9 +2,8 @@
 using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
 using StackExchange.Redis;
-using WebApiServer.DBProtocol;
 
-namespace WebApiServer.Util
+namespace Server.DBProtocol
 {
     public static class RedisUtil
     {

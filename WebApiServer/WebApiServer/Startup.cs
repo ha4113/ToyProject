@@ -4,9 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using WebApiServer.Route;
+using Server.NetworkProtocol;
+using Server.NetworkProtocol.Route;
 
-namespace WebApiServer
+namespace Server
 {
     public class Startup
     {

@@ -1,4 +1,4 @@
-﻿namespace WebApiServer.Enums
+﻿namespace Server.Enums
 {
     public enum HttpFormat
     {

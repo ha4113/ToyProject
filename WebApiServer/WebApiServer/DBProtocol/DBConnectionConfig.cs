@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Common.Core.Util;
+using Server.Enums;
 
-namespace WebApiServer.DBProtocol
+namespace Server.DBProtocol
 {
     public static class DBConnectionConfig
     {

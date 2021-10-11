@@ -2,12 +2,12 @@
 using System.Threading.Tasks;
 using Common.Protocol.Network;
 using Microsoft.AspNetCore.Http;
-using WebApiServer.Enums;
-using WebApiServer.Util;
+using Server.Enums;
+using Server.Util;
 
-namespace WebApiServer.Route
+namespace Server.NetworkProtocol
 {
-    public static class Reader
+    public static class RoutingReader
     {
         public static async Task<(TReq Req, HttpFormat format)> ReadReqAsync<TReq>(HttpContext httpContext)
             where TReq : IReq

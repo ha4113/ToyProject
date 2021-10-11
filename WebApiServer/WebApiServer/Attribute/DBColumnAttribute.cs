@@ -1,13 +1,7 @@
-﻿using System;
+﻿using Server.Enums;
 
-namespace WebApiServer.Attribute
+namespace Server.Attribute
 {
-    public enum ColumnType
-    {
-        NONE,
-        KEY,
-        PRIMARY_KEY,
-    }
     public class DBColumnAttribute : System.Attribute
     {
         public ColumnType ColumnType { get; }

@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 using Common.Core.Util;
 using Common.Protocol.Enums;
 using Microsoft.AspNetCore.Http;
+using Server.Enums;
 using Utf8Json;
-using WebApiServer.Enums;
 
-namespace WebApiServer.Util
+namespace Server.Util
 {
     public static class HttpContextExtensions
     {

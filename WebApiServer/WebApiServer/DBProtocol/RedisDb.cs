@@ -3,7 +3,7 @@ using Common.Core.Util;
 using Microsoft.Extensions.Configuration;
 using StackExchange.Redis;
 
-namespace WebApiServer.DBProtocol
+namespace Server.DBProtocol
 {
     public abstract class RedisDb<T> : Singleton<T>
         where T : new()

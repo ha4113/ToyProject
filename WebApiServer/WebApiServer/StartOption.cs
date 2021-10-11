@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace WebApiServer
+namespace Server
 {
     public class StartOption
     {
