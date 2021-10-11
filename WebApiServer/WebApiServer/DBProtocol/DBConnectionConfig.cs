@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using WebApiServer.Utility;
+using Common.Core.Util;
 
 namespace WebApiServer.DBProtocol
 {

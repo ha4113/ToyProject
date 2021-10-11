@@ -6,7 +6,6 @@ using System.IO;
 using System.Reflection;
 using CommandLine;
 using WebApiServer.DBProtocol;
-using WebApiServer.Utility;
 
 namespace WebApiServer
 {

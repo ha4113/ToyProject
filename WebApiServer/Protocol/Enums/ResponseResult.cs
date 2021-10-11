@@ -1,4 +1,4 @@
-﻿namespace Common.Protocol.Network
+﻿namespace Common.Protocol.Enums
 {
     public enum ResponseResult
     {

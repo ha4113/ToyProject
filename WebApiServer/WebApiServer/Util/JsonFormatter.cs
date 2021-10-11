@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Serilog;
 
-namespace WebApiServer.Utility
+namespace WebApiServer.Util
 {
     public static class JsonFormatter
     {

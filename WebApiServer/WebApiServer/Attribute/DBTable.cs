@@ -1,15 +1,15 @@
-﻿using WebApiServer.DBProtocol;
-using WebApiServer.Utility;
+﻿using Common.Core.Util;
+using WebApiServer.DBProtocol;
 
 namespace WebApiServer.Attribute
 {
-    public class DBTable : System.Attribute
+    public class DBTableAttribute : System.Attribute
     {
         public string TableName { get; }
         public DB DBType { get; }
         public Table Table { get; }
 
-        public DBTable(DB dbType, Table table)
+        public DBTableAttribute(DB dbType, Table table)
         {
             DBType = dbType;
             Table = table;

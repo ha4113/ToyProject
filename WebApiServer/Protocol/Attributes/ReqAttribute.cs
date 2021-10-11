@@ -1,4 +1,4 @@
-﻿namespace WebApiServer.Attribute
+﻿namespace Common.Protocol.Attributes
 {
     public class ReqAttribute : System.Attribute
     {

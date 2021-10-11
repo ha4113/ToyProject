@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using Common.Protocol.Network;
 using Microsoft.AspNetCore.Http;
+using WebApiServer.Enums;
+using WebApiServer.Util;
 
-namespace WebApiServer.Utility
+namespace WebApiServer.Route
 {
     public static class Reader
     {

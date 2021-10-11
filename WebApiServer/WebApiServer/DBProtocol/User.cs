@@ -18,9 +18,9 @@ namespace WebApiServer.DBProtocol
             _dbConnections.Add(db, conn);
         } 
         
-        public async Task<T> GetModel<T>() where T : class, IDBModel, new()
+        public async Task<T> GetModelAsync<T>() where T : class, IDBModel, new()
         {
-            var dbTableAttr = typeof(T).GetCustomAttribute<DBTable>();
+            var dbTableAttr = typeof(T).GetCustomAttribute<DBTableAttribute>();
             if (dbTableAttr == null)
             {
                 return null;

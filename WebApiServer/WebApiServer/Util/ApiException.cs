@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.Protocol.Network;
+using Common.Protocol.Enums;
 
-namespace WebApiServer.Utility
+namespace WebApiServer.Util
 {
     public class ApiException : Exception
     {

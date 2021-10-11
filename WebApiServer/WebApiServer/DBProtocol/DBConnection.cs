@@ -36,7 +36,7 @@ namespace WebApiServer.DBProtocol
         public async Task<T> GetData<T>(long id)
             where T : class, IDBModel, new()
         {
-            var dbTableAttr = typeof(T).GetCustomAttribute<DBTable>();
+            var dbTableAttr = typeof(T).GetCustomAttribute<DBTableAttribute>();
 
             if (dbTableAttr == null)
             {
@@ -76,7 +76,7 @@ namespace WebApiServer.DBProtocol
 
                     foreach (var propertyInfo in propertyInfos)
                     {
-                        var dbColumn = propertyInfo.GetCustomAttribute<DBColumn>();
+                        var dbColumn = propertyInfo.GetCustomAttribute<DBColumnAttribute>();
                         if (dbColumn != null && dbColumn.ColumnNameHash == columnName)
                         {
                             switch (dbColumn.ColumnType)

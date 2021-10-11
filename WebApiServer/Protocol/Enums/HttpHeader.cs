@@ -1,6 +1,6 @@
 ﻿using Common.Core.Util;
 
-namespace Common.Protocol.Network
+namespace Common.Protocol.Enums
 {
     public enum HttpHeader
     {

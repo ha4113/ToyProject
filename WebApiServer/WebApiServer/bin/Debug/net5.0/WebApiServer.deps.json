@@ -1637,6 +1637,9 @@
         }
       },
       "Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.OpenApi": "1.2.3"
+        },
         "runtime": {
           "Core.dll": {}
         },

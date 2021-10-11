@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using Common.Protocol.Attributes;
+using Common.Protocol.Enums;
 using Common.Protocol.Network;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using WebApiServer.Attribute;
 using WebApiServer.DBProtocol;
+using WebApiServer.Enums;
 using WebApiServer.Interface;
+using WebApiServer.Util;
 
-namespace WebApiServer.Utility
+namespace WebApiServer.Route
 {
     public static class RoutingRegisterer
     {
@@ -95,7 +98,7 @@ namespace WebApiServer.Utility
             try
             {
                 // 동시요청을 막기위해 락을건다.
-                redisLocked = await Util.BeginRequestRedisLock(id);
+                redisLocked = await RedisUtil.BeginRequestRedisLock(id);
                 if (redisLocked == false)
                 {
                     await httpContext.SendErrorResponse(ResponseResult.SessionWorking).ConfigureAwait(false);
@@ -153,7 +156,7 @@ namespace WebApiServer.Utility
             {
                 if (redisLocked)
                 {
-                    await Util.EndRequestRedisLock(id);
+                    await RedisUtil.EndRequestRedisLock(id);
                 }
             }
         }

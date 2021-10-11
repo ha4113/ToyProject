@@ -1,12 +1,23 @@
-﻿namespace Common.Core.Util
+﻿using System;
+using Microsoft.OpenApi.Extensions;
+
+namespace Common.Core.Util
 {
-    public class StringValue : System.Attribute
+    public class StringValueAttribute : System.Attribute
     {
         public string Value { get; }
 
-        public StringValue(string value)
+        public StringValueAttribute(string value)
         {
             Value = value;
+        }
+    }
+
+    public static class Util
+    {
+        public static string GetStringValue(this Enum obj)
+        {
+            return obj.GetAttributeOfType<StringValueAttribute>().Value;
         }
     }
 }

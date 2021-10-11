@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Common.Protocol.Network;
+using Common.Core.Util;
+using Common.Protocol.Enums;
 using Microsoft.AspNetCore.Http;
 using Utf8Json;
+using WebApiServer.Enums;
 
-namespace WebApiServer.Utility
+namespace WebApiServer.Util
 {
     public static class HttpContextExtensions
     {
-        public static void SetBodyFormat(this IHeaderDictionary headers,HttpFormat format)
+        public static void SetBodyFormat(this IHeaderDictionary headers, HttpFormat format)
         {
             headers[HttpHeader.FORMAT_KEY.GetStringValue()] = format.ToString();
         }

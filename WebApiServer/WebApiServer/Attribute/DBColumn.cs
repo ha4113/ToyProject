@@ -8,12 +8,12 @@ namespace WebApiServer.Attribute
         KEY,
         PRIMARY_KEY,
     }
-    public class DBColumn : System.Attribute
+    public class DBColumnAttribute : System.Attribute
     {
         public ColumnType ColumnType { get; }
         public int ColumnNameHash { get; }
 
-        public DBColumn(string columnName, ColumnType columnType = ColumnType.NONE)
+        public DBColumnAttribute(string columnName, ColumnType columnType = ColumnType.NONE)
         {
             ColumnType = columnType;
             ColumnNameHash = columnName.GetHashCode();

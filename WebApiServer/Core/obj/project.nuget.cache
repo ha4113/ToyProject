@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "TMrs4wbdHVuhOF9jLn5ne9O9T6bBeqJIQPrhp0P44EKWHr5sJWF5Y+pgh4vlvfKecRe/0VI9hBZQGfnveun/IQ==",
+  "dgSpecHash": "tIkyYfrr5OmkC3o73aqTX3ULh5x2b4CCFTH0iGqd224fbB5oo9o4NS03psnHC9D8OHLXYd7lR2mkClNFYkuPsQ==",
   "success": true,
   "projectFilePath": "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ha411\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512"
+  ],
   "logs": []
 }

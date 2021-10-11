@@ -2077,6 +2077,9 @@
       "Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.OpenApi": "1.2.3"
+        },
         "compile": {
           "bin/placeholder/Core.dll": {}
         },
