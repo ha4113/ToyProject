@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using WebApiServer.Attribute;
 
 namespace Common.Protocol.Network
 {
@@ -10,25 +11,34 @@ namespace Common.Protocol.Network
 
     public interface IAck
     {
-        Result Result { get; }
+        ResponseResult Result { get; }
     }
+
+    public static class UserCommand
+    {
+        public const string ROOT = "user";
+    }
+
     
+    [Serializable]
+    [Req(API)]
     public class GetTestReq : IReq
     {
-        public long Id { get; }
+        private const string API = UserCommand.ROOT + "/get-test";
+        public long Id { get; set; }
         public GetTestReq(long id) { Id = id; }
     }
     
+    [Serializable]
     public class GetTestAck : IAck
     {
-        public Result Result { get; }
-        public byte TestValue { get; }
+        public ResponseResult Result { get; set; }
+        public byte TestValue { get; set; }
 
-        public GetTestAck(Result result, byte testValue)
+        public GetTestAck(ResponseResult result, byte testValue)
         {
             TestValue = testValue;
             Result = result;
         }
-        
     }
 }

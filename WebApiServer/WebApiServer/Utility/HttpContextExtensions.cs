@@ -13,9 +13,9 @@ namespace WebApiServer.Utility
             headers[HttpHeader.FORMAT_KEY.GetStringValue()] = format.ToString();
         }
 
-        public static void SetHeaderResultType(this IHeaderDictionary headers, Result resultType)
+        public static void SetHeaderResultType(this IHeaderDictionary headers, ResponseResult resultType)
         {
-            headers[HttpHeader.RESULT_TYPE_KEY.GetStringValue()] = resultType.ToString();
+            headers[HttpHeader.RESULT_KEY.GetStringValue()] = resultType.ToString();
         }
 
         public static HttpFormat GetBodyFormat(this IHeaderDictionary headers)
@@ -29,10 +29,10 @@ namespace WebApiServer.Utility
             return result;
         }
         
-        public static Result GetHeaderResultType(this IHeaderDictionary headers)
+        public static ResponseResult GetHeaderResultType(this IHeaderDictionary headers)
         {
-            var result = Result.NONE;
-            if (headers != null && headers.TryGetValue(HttpHeader.RESULT_TYPE_KEY.GetStringValue(), out var values) && values.Count > 0)
+            var result = ResponseResult.NONE;
+            if (headers != null && headers.TryGetValue(HttpHeader.RESULT_KEY.GetStringValue(), out var values) && values.Count > 0)
             {
                 _ = Enum.TryParse(values[0], true, out result);
             }

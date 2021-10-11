@@ -5,7 +5,7 @@ namespace WebApiServer.Utility
 {
     public class ApiException : Exception
     {
-        public Result ErrorCode { get; }
-        public ApiException(Result errorCode) { ErrorCode = errorCode; }
+        public ResponseResult ErrorCode { get; }
+        public ApiException(ResponseResult errorCode) { ErrorCode = errorCode; }
     }
 }

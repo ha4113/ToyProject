@@ -78,14 +78,14 @@ namespace WebApiServer.Utility
             var format = httpContext.Request.Headers.GetBodyFormat();
             if (format == HttpFormat.NONE)
             {
-                await httpContext.SendErrorResponse(Result.BadRequest).ConfigureAwait(false);
+                await httpContext.SendErrorResponse(ResponseResult.BadRequest).ConfigureAwait(false);
                 return;
             }
 
             var (req, _) = await Reader.ReadReqAsync<TReq>(httpContext);
             if (req == null)
             {
-                await httpContext.SendErrorResponse(Result.BadRequest).ConfigureAwait(false);
+                await httpContext.SendErrorResponse(ResponseResult.BadRequest).ConfigureAwait(false);
                 return;
             }
 
@@ -98,7 +98,7 @@ namespace WebApiServer.Utility
                 redisLocked = await Util.BeginRequestRedisLock(id);
                 if (redisLocked == false)
                 {
-                    await httpContext.SendErrorResponse(Result.SessionWorking).ConfigureAwait(false);
+                    await httpContext.SendErrorResponse(ResponseResult.SessionWorking).ConfigureAwait(false);
                     return;
                 }
 
@@ -107,7 +107,7 @@ namespace WebApiServer.Utility
                 {
                     if (user == null)
                     {
-                        await httpContext.SendErrorResponse(Result.InvalidAccessToken).ConfigureAwait(false);
+                        await httpContext.SendErrorResponse(ResponseResult.InvalidAccessToken).ConfigureAwait(false);
                         return;
                     }
 
@@ -120,14 +120,14 @@ namespace WebApiServer.Utility
                     }
                     catch (Exception exception)
                     {
-                        var resultType = (exception is ApiException apiException) ? apiException.ErrorCode : Result.InternalSystemError;
+                        var resultType = (exception is ApiException apiException) ? apiException.ErrorCode : ResponseResult.InternalSystemError;
                         var errorMessage = exception.ToString();
 
                         await httpContext.SendErrorResponse(resultType, errorMessage).ConfigureAwait(false);
                         return;
                     }
 
-                    var isSuccess = ack != null && (ack.Result == Result.Success || ack.Result == Result.NONE);
+                    var isSuccess = ack != null && (ack.Result == ResponseResult.Success || ack.Result == ResponseResult.NONE);
                     if (isSuccess)
                     {
                         // 플레이어의 변경사항 적용및 클라동기화 유도.
@@ -137,7 +137,7 @@ namespace WebApiServer.Utility
                         }
                         catch (Exception exception)
                         {
-                            var resultType = (exception is ApiException apiException) ? apiException.ErrorCode : Result.InternalSystemError;
+                            var resultType = (exception is ApiException apiException) ? apiException.ErrorCode : ResponseResult.InternalSystemError;
                             var errorMessage = exception.ToString();
                         
                             await httpContext.SendErrorResponse(resultType, errorMessage).ConfigureAwait(false);

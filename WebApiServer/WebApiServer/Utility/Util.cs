@@ -17,7 +17,7 @@ namespace WebApiServer.Utility
             return obj.GetAttributeOfType<StringValue>().Value;
         }
         
-        public static async Task SendErrorResponse(this HttpContext httpContext, Result resultType, string errorMessage = null)
+        public static async Task SendErrorResponse(this HttpContext httpContext, ResponseResult resultType, string errorMessage = null)
         {
             httpContext.Response.Headers.SetHeaderResultType(resultType);
             await httpContext.SendResponseBody(errorMessage ?? string.Empty, false).ConfigureAwait(false);

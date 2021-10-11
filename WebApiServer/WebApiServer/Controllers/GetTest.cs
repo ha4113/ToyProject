@@ -11,7 +11,7 @@ namespace WebApiServer.Controllers
         protected override async Task<GetTestAck> Run(GetTestReq req, User user)
         {
             var account = await user.GetModel<Account>();
-            return new GetTestAck(Result.Success, account.WakeType);
+            return new GetTestAck(ResponseResult.Success, account.WakeType);
         }
     }
 }
