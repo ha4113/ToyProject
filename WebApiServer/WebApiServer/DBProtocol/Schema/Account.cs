@@ -13,7 +13,7 @@ namespace Server.DBProtocol.Schema
         public byte WakeTimeType { get; set; }
         
         [DBColumn("work_type")] 
-        public byte WakeType { get; set; }
+        public bool WakeType { get; set; }
 
         public IDBModel DeepCopy()
         {

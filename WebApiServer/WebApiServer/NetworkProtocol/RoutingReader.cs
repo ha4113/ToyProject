@@ -53,7 +53,7 @@ namespace Server.NetworkProtocol
             }
 
             // 유저의 변경사항을 패킷에 덧붙인다.
-            
+            await JsonFormatter.WriteAsync(httpContext, ack);
         }
     }
 }

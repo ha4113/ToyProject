@@ -19,6 +19,5 @@ namespace Common.Protocol.Network
     {
         private const string API = UserCommand.ROOT + "/get-test";
         public long Id { get; set; }
-        public GetTestReq(long id) { Id = id; }
     }
 }

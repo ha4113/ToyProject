@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using Server.Attribute;
 using Server.DBProtocol.Schema;
 using Server.Enums;
+using Enum = System.Enum;
 
 namespace Server.DBProtocol
 {
@@ -34,7 +35,7 @@ namespace Server.DBProtocol
 
             return user;
         }
-
+        
         public async Task<T> GetData<T>(long id)
             where T : class, IDBModel, new()
         {
@@ -66,16 +67,15 @@ namespace Server.DBProtocol
                 tableColumns.Add(column.ColumnName.GetHashCode());
             }
             
+            var selectData = new T();
+            var propertyInfos = selectData.GetType().GetProperties();
 
             foreach (DataRow row in dataTable.Rows)
             {
-                var selectData = new T();
                 for (var i = 0; i < tableColumns.Count; ++i)
                 {
                     var columnName = tableColumns[i];
                     var data = row.ItemArray[i];
-                    var propertyInfos = selectData.GetType().GetProperties();
-
                     foreach (var propertyInfo in propertyInfos)
                     {
                         var dbColumn = propertyInfo.GetCustomAttribute<DBColumnAttribute>();
@@ -104,7 +104,8 @@ namespace Server.DBProtocol
                 }
             }
 
-            return null;
+            return selectData;
+            // throw new ApiException(ResponseResult.InvalidAccessToken);
         }
 
         public async void Dispose()
