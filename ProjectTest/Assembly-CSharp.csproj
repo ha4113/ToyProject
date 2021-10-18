@@ -49,6 +49,13 @@
      <Compile Include="Assets\Script\Common\Core\Util\StringValue.cs" />
      <Compile Include="Assets\Script\Common\Core\Util\EnumUtil.cs" />
      <Compile Include="Assets\Script\Common\Core\Util\Singleton.cs" />
+     <Compile Include="Assets\Script\UI\UIView.cs" />
+     <Compile Include="Assets\Script\UI\EventCommand.cs" />
+     <Compile Include="Assets\Script\UI\Stubs.cs" />
+     <Compile Include="Assets\Script\UI\IEventObservableExtension.cs" />
+     <Compile Include="Assets\Script\UI\EventProperty.cs" />
+     <Compile Include="Assets\Script\UI\IEventObservable.cs" />
+     <Compile Include="Assets\Script\UI\UIController.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -729,6 +736,10 @@
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
       <Project>{41157466-2591-67e1-688d-7fe32bae764c}</Project>
       <Name>Zenject-ReflectionBaking-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{cc7c9155-4754-fa94-eb91-a72b2faa57a2}</Project>
+      <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
