@@ -22,7 +22,7 @@ ProjectTest/CreateLink.bat 파일을 관리자 권한으로 실행하여 Protoco
  - DB INSERT / DELETE / UPDATE 쿼리 적용(공부용) -> 이후 Dapper ORM 적용
  - Transaction 보장 작업
  - 로그인 작업
- - 샤딩 
+ - 샤딩 작업
 
 [Client TODO]
  - HTTP 웹서버 통신 적용
