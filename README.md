@@ -28,3 +28,4 @@ ProjectTest/CreateLink.bat 파일을 관리자 권한으로 실행하여 Protoco
  - UI 베이스 작업
  - Battle Flow 로직 작성
  - Google FaceBook IOS 로그인 작업
+ - 번들 적용 (Unity 번들? Addressable?...)
