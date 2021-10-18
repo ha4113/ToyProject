@@ -14,6 +14,8 @@ ProjectTest/CreateLink.bat 파일을 관리자 권한으로 실행하여 Protoco
 
 
 // 이하 작업예정...
+[Common TODO]
+ - CSV Parser 작업
 
 [Server TODO]
  - DB INSERT / DELETE / UPDATE 쿼리 적용(공부용) -> 이후 Dapper ORM 적용
