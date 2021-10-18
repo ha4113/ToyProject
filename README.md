@@ -21,7 +21,7 @@ ProjectTest/CreateLink.bat 파일을 관리자 권한으로 실행하여 Protoco
  - 로그인 작업
 
 [Client TODO]
- - 웹서버 통신 적용
+ - HTTP 웹서버 통신 적용
  - UI 베이스 작업
  - Battle Flow 로직 작성
  - Google FaceBook IOS 로그인 작업
