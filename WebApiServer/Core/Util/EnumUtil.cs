@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.OpenApi.Extensions;
+using System.Reflection;
 
 namespace Common.Core.Util
 {
@@ -7,7 +7,7 @@ namespace Common.Core.Util
     {
         public static string GetStringValue(this Enum obj)
         {
-            return obj.GetAttributeOfType<StringValueAttribute>().Value;
+            return obj.GetType().GetCustomAttribute<StringValueAttribute>().Value;
         }
     }
 }
