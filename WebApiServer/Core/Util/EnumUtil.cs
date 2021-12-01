@@ -7,7 +7,7 @@ namespace Common.Core.Util
     {
         public static string GetStringValue(this Enum obj)
         {
-            return obj.GetType().GetCustomAttribute<StringValueAttribute>().Value;
+            return obj.GetType().GetCustomAttribute<StringValueAttribute>()?.Value;
         }
     }
 }
