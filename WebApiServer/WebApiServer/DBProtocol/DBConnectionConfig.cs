@@ -15,7 +15,7 @@ namespace Server.DBProtocol
     
         public static void RegistDBConfig(DB dbType, string dbBase)
         {
-            _dbConfigList.Add(dbType, string.Format(dbBase, dbType.GetStringValue()));
+            _dbConfigList.Add(dbType, string.Format(dbBase, dbType.ToStringValue()));
         }
     }
 }

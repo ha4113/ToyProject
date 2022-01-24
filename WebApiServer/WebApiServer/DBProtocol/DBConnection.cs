@@ -70,6 +70,7 @@ namespace Server.DBProtocol
             var selectData = new T();
             var propertyInfos = selectData.GetType().GetProperties();
 
+            // TODO : Row 가 여러줄일때 바인딩 방법 생각해야함
             foreach (DataRow row in dataTable.Rows)
             {
                 for (var i = 0; i < tableColumns.Count; ++i)

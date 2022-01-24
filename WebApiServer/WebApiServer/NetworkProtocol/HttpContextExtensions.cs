@@ -12,18 +12,18 @@ namespace Server.Util
     {
         public static void SetBodyFormat(this IHeaderDictionary headers, HttpFormat format)
         {
-            headers[HttpHeader.FORMAT_KEY.GetStringValue()] = format.ToString();
+            headers[HttpHeader.FORMAT_KEY.ToStringValue()] = format.ToString();
         }
 
         public static void SetHeaderResultType(this IHeaderDictionary headers, ResponseResult resultType)
         {
-            headers[HttpHeader.RESULT_KEY.GetStringValue()] = resultType.ToString();
+            headers[HttpHeader.RESULT_KEY.ToStringValue()] = resultType.ToString();
         }
 
         public static HttpFormat GetBodyFormat(this IHeaderDictionary headers)
         {
             var result = HttpFormat.NONE;
-            if (headers != null && headers.TryGetValue(HttpHeader.FORMAT_KEY.GetStringValue(), out var values) && values.Count > 0)
+            if (headers != null && headers.TryGetValue(HttpHeader.FORMAT_KEY.ToStringValue(), out var values) && values.Count > 0)
             {
                 _ = Enum.TryParse(values[0], true, out result);
             }
@@ -34,7 +34,7 @@ namespace Server.Util
         public static ResponseResult GetHeaderResultType(this IHeaderDictionary headers)
         {
             var result = ResponseResult.NONE;
-            if (headers != null && headers.TryGetValue(HttpHeader.RESULT_KEY.GetStringValue(), out var values) && values.Count > 0)
+            if (headers != null && headers.TryGetValue(HttpHeader.RESULT_KEY.ToStringValue(), out var values) && values.Count > 0)
             {
                 _ = Enum.TryParse(values[0], true, out result);
             }

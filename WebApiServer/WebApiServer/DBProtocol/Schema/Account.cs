@@ -7,13 +7,13 @@ namespace Server.DBProtocol.Schema
     public class Account : IDBModel
     {
         [DBColumn("id", ColumnType.PRIMARY_KEY)]
-        public long Id { get; set; }
+        public long Id { get; private init; }
         
         [DBColumn("wake_time_type")] 
-        public byte WakeTimeType { get; set; }
+        public byte WakeTimeType { get; private init; }
         
         [DBColumn("work_type")] 
-        public bool WakeType { get; set; }
+        public bool WakeType { get; private init; }
 
         public IDBModel DeepCopy()
         {

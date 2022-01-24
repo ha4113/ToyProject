@@ -13,12 +13,12 @@ namespace Server.DBProtocol
         {
             var redisKey = GetRedisLockKey(id);
             var time = DateTime.UtcNow.ToTimestamp();
-            return await RedisUserData.Instance.Database
-                                      .StringSetAsync(redisKey,
-                                                      time.ToString(),
-                                                      TimeSpan.FromSeconds(LOCK_DURATION_SECOND),
-                                                      When.NotExists)
-                                      .ConfigureAwait(false);
+            var db = RedisUserData.Instance.Database;
+            return await db.StringSetAsync(redisKey, 
+                                           time.ToString(),
+                                           TimeSpan.FromSeconds(LOCK_DURATION_SECOND),
+                                           When.NotExists)
+                           .ConfigureAwait(false);
         }
 
         public static async Task EndRequestRedisLock(long id)
