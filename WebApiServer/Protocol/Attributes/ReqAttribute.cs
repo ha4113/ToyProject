@@ -2,7 +2,7 @@
 {
     public class ReqAttribute : System.Attribute
     {
-        public string Api { get; set; }
+        public string Api { get; }
         public ReqAttribute(string api) { Api = api; }
     }
 }

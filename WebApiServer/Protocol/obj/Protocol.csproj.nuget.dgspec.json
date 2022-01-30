@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Protocol/Protocol.csproj": {}
+    "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj": {}
   },
   "projects": {
-    "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Core/Core.csproj": {
+    "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Core/Core.csproj",
+        "projectUniqueName": "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Core/Core.csproj",
-        "packagesPath": "/Users/lsy/.nuget/packages/",
-        "outputPath": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Core/obj/",
+        "projectPath": "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\ha411\\.nuget\\packages\\",
+        "outputPath": "E:\\Project\\WebApi\\WebApiServer\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/lsy/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ha411\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,49 +55,41 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/lsy/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Protocol/Protocol.csproj": {
+    "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Protocol/Protocol.csproj",
+        "projectUniqueName": "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj",
         "projectName": "Protocol",
-        "projectPath": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Protocol/Protocol.csproj",
-        "packagesPath": "/Users/lsy/.nuget/packages/",
-        "outputPath": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Protocol/obj/",
+        "projectPath": "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj",
+        "packagesPath": "C:\\Users\\ha411\\.nuget\\packages\\",
+        "outputPath": "E:\\Project\\WebApi\\WebApiServer\\Protocol\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/lsy/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ha411\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Core/Core.csproj": {
-                "projectPath": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Core/Core.csproj"
+              "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj": {
+                "projectPath": "E:\\Project\\WebApi\\WebApiServer\\Core\\Core.csproj"
               }
             }
           }
@@ -119,22 +113,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/lsy/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

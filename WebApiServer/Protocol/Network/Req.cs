@@ -5,7 +5,7 @@ namespace Common.Protocol.Network
 {
     public interface IReq
     {
-        long Id { get; }
+        long Id { get; set; }
     }
 
     public static class UserCommand

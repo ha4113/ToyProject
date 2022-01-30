@@ -84,7 +84,7 @@ namespace Server.NetworkProtocol
                     }
                     catch (Exception exception)
                     {
-                        var resultType = (exception is ApiException apiException) ? apiException.ErrorCode : ResponseResult.InternalSystemError;
+                        var resultType = (exception is NetException netException) ? netException.ErrorCode : ResponseResult.InternalSystemError;
                         var errorMessage = exception.ToString();
 
                         await httpContext.SendErrorResponse(resultType, errorMessage).ConfigureAwait(false);
@@ -101,7 +101,7 @@ namespace Server.NetworkProtocol
                         }
                         catch (Exception exception)
                         {
-                            var resultType = (exception is ApiException apiException) ? apiException.ErrorCode : ResponseResult.InternalSystemError;
+                            var resultType = (exception is NetException netException) ? netException.ErrorCode : ResponseResult.InternalSystemError;
                             var errorMessage = exception.ToString();
                         
                             await httpContext.SendErrorResponse(resultType, errorMessage).ConfigureAwait(false);

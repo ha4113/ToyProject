@@ -6,13 +6,18 @@
         Success = 1001,
         
         // Critical 2001 ~ 3000
-        BadRequest = 2001,
+        CRITICAL = 2000, 
+        BadRequest,
         InvalidAccessToken,        
         SessionWorking,
         
-        // Error 3001 ~ 4000
-        InternalSystemError = 3001,
+        InvalidResponseStream,
         
+        // Error 3001 ~ 4000
+        ERROR = 3000,
+        InternalSystemError,
+       
         // Warning 4001 ~ 5000
+        WARNING = 4000,
     }
 }

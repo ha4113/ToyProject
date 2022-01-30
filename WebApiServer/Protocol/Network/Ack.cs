@@ -6,6 +6,7 @@ namespace Common.Protocol.Network
     public interface IAck
     {
         ResponseResult Result { get; }
+        // TODO : Ack 내에 DB 변경사항 추가
     }
     
     [Serializable]

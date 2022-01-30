@@ -1,12 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HUB6O7sqHBIzfMLWEMZAn3WPncYRJJEZuVcQjPkNe4CVAb7tRY50xsPb+6c4SHzSRYmVa3siVeXe7D9IXuH5zQ==",
+  "dgSpecHash": "xP5hC2Lr/GNUNRs0UWwhc1rPK4i5Nyl4GcLNhd0EMcaBSLp2+TLjAzOR/5/tkFGEZKqcUXhQRVZ2IbbAx0SCyg==",
   "success": true,
-  "projectFilePath": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Protocol/Protocol.csproj",
+  "projectFilePath": "E:\\Project\\WebApi\\WebApiServer\\Protocol\\Protocol.csproj",
   "expectedPackageFiles": [
-    "/Users/lsy/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
-    "/Users/lsy/.nuget/packages/microsoft.netcore.app.ref/5.0.0/microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
-    "/Users/lsy/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+    "C:\\Users\\ha411\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512"
   ],
   "logs": []
 }
