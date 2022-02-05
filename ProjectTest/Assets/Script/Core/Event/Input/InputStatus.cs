@@ -1,9 +1,9 @@
-public class StatusButtonEvent : IInputEvent
+public class InputStatus : IInputEvent
 {
     private readonly int _id;
     private readonly string _name;
 
-    public StatusButtonEvent(int id, string name)
+    public InputStatus(int id, string name)
     {
         _id = id;
         _name = name;
@@ -13,8 +13,8 @@ public class StatusButtonEvent : IInputEvent
     {
         return new IEvent[]
         {
-            new IdViewEvent(_id),
-            new NameViewEvent(_name)
+            new OutputIdView(_id),
+            new OutputNameView(_name),
         };
     }
 }

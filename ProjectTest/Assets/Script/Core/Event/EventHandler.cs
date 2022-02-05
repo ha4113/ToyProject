@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Reflection;
 using Zenject;
 
 public interface IEvent { }
@@ -6,7 +7,7 @@ public interface IEvent { }
 public interface IEventHandler
 {
     void AddEvent(IEvent e);
-    void AddEvents(params IEvent[] events);
+    void AddEvent(params IEvent[] events);
 }
 
 public class EventHandler : IEventHandler, ITickable
@@ -37,7 +38,7 @@ public class EventHandler : IEventHandler, ITickable
         
     }
     
-    public void AddEvents(params IEvent[] events)
+    public void AddEvent(params IEvent[] events)
     {
         if (events == null)
         {
@@ -88,7 +89,7 @@ public class EventHandler : IEventHandler, ITickable
 
     private void Hook(IEvent e)
     {
-        // TODO : 어떻게 분업화할지 고민 필요
+        // TODO : 테이블 작성 후 어떻게 분업화할지 고민 필요
         switch (e)
         {
             

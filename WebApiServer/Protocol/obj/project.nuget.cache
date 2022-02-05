@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HUB6O7sqHBIzfMLWEMZAn3WPncYRJJEZuVcQjPkNe4CVAb7tRY50xsPb+6c4SHzSRYmVa3siVeXe7D9IXuH5zQ==",
+  "dgSpecHash": "xZB0muOJ54Dw+EEIcgudmjwzzjYlpn9BvQL22Pn5/4vK3G9f96cUnMMZKn3cJMXilYN4uXEuO0urduvVYSa6jg==",
   "success": true,
   "projectFilePath": "/Users/lsy/Documents/Project/ToyProject/WebApiServer/Protocol/Protocol.csproj",
   "expectedPackageFiles": [

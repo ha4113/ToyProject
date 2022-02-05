@@ -9,40 +9,63 @@ using Common.Protocol.Enums;
 using Common.Protocol.Network;
 using ModestTree;
 using Newtonsoft.Json;
+using UniRx;
+using UnityEngine;
 using Zenject;
 
 public interface IPacketManager
 {
     IEventObservable<ResponseResult> ResponseError { get; }
-    Task ReqTest();
 }
 
-public class PacketManager : IPacketManager, IInitializable, IDisposable
+public class PacketManager : IOutputEventSubscriber, IPacketManager, IInitializable, IDisposable
 {
+    public CompositeDisposable Disposable => _disposable;
+    
     public IEventObservable<ResponseResult> ResponseError => _packetError;
 
-    private readonly EventCommand<ResponseResult> _packetError = new EventCommand<ResponseResult>();
-    private readonly IGlobalEvent _globalEvent;
-
-    public PacketManager(IGlobalEvent globalEvent)
+    private readonly EventCommand<ResponseResult> _packetError = new();
+    private readonly IEventHandler _eventHandler;
+    private readonly CompositeDisposable _disposable = new();
+    
+    public PacketManager(IEventHandler eventHandler)
     {
-        _globalEvent = globalEvent;
+        _eventHandler = eventHandler;
     }
     
     public void Initialize()
     {
-        
+        _eventHandler.AddEvent(new InputStatus(1,"James"));
+    }
+    
+    [OutputSubscribe(typeof(OutputIdView))]
+    public void OutputId(IOutputEvent output)
+    {
+        if (output is OutputIdView outputEvent)
+        {
+            Debug.Log($"IdViewEvent : {outputEvent.ID}");
+        }
     }
 
+    [OutputSubscribe(typeof(OutputNameView))]
+    public void OutputName(IOutputEvent output)
+    {
+        if (output is OutputNameView outputEvent)
+        {
+            Debug.Log($"NameViewEvent : {outputEvent.Name}");
+        }
+    }
+    
     public void Dispose()
     {
         _packetError?.Dispose();
+        _disposable.Dispose();
     }
 
     public async Task ReqTest()
     {
         var ack = await Request<GetTestReq, GetTestAck>(new GetTestReq());
-        _globalEvent.ReceiveTest.Execute(ack.TestValue);
+        
     }
 
     private async Task<TAck> Request<TReq, TAck>(TReq req)
