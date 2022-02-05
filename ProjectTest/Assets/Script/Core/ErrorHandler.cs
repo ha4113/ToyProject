@@ -5,15 +5,20 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
+public interface IErrorHandler
+{
+    
+}
 public class ErrorHandler : IInitializable, IDisposable
 {
-    private readonly CompositeDisposable _disposable = new CompositeDisposable();
+    private readonly CompositeDisposable _disposable = new();
     private readonly IPacketManager _packetManager;
 
     public ErrorHandler(IPacketManager packetManager)
     {
         _packetManager = packetManager;
     }
+    
     public void Initialize()
     {
         _packetManager.ResponseError
@@ -23,17 +28,22 @@ public class ErrorHandler : IInitializable, IDisposable
 
     private void ResponseError(ResponseResult responseResult)
     {
-        if (responseResult > ResponseResult.WARNING)
+        switch (responseResult)
         {
-            Debug.LogWarning(responseResult);
-        }
-        else if (responseResult > ResponseResult.ERROR)
-        {
-            Debug.LogError(responseResult);
-        }
-        else if (responseResult > ResponseResult.CRITICAL)
-        {
-            throw new NetException(responseResult);
+        case > ResponseResult.WARNING:
+            {
+                Debug.LogWarning(responseResult);
+            }
+            break;
+        case > ResponseResult.ERROR:
+            {
+                Debug.LogError(responseResult);
+            }
+            break;
+        case > ResponseResult.CRITICAL:
+            {
+                throw new NetException(responseResult);
+            }
         }
     }
     

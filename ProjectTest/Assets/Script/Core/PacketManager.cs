@@ -22,9 +22,9 @@ public class PacketManager : IPacketManager, IInitializable, IDisposable
     public IEventObservable<ResponseResult> ResponseError => _packetError;
 
     private readonly EventCommand<ResponseResult> _packetError = new EventCommand<ResponseResult>();
-    private readonly GlobalEvent _globalEvent;
+    private readonly IGlobalEvent _globalEvent;
 
-    public PacketManager(GlobalEvent globalEvent)
+    public PacketManager(IGlobalEvent globalEvent)
     {
         _globalEvent = globalEvent;
     }

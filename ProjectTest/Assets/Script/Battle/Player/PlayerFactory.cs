@@ -6,13 +6,13 @@ using Zenject;
 
 public class PlayerFactory : PlaceholderFactory<long, Task<Player>>
 {
-    private readonly PrefabManager _prefabManager;
+    private readonly IPrefabManager _prefabManager;
     private readonly IPacketManager _packetManager;
-    private readonly GlobalEvent _globalEvent;
+    private readonly IGlobalEvent _globalEvent;
 
-    public PlayerFactory(PrefabManager prefabManager,
+    public PlayerFactory(IPrefabManager prefabManager,
                          IPacketManager packetManager,
-                         GlobalEvent globalEvent)
+                         IGlobalEvent globalEvent)
     {
         _prefabManager = prefabManager;
         _packetManager = packetManager;

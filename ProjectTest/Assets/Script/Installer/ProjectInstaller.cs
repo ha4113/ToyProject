@@ -6,10 +6,11 @@ public class ProjectInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Debug.LogError("ProjectInstall");
-        Container.BindInterfacesAndSelfTo<GlobalEvent>().AsSingle();
-        Container.BindInterfacesAndSelfTo<PrefabManager>().AsSingle();
-        Container.BindInterfacesAndSelfTo<PacketManager>().AsSingle();
-        Container.BindInterfacesAndSelfTo<ErrorHandler>().AsSingle();
+        Container.BindInterfacesTo<GlobalEvent>().AsSingle();
+        Container.BindInterfacesTo<PrefabManager>().AsSingle();
+        Container.BindInterfacesTo<PacketManager>().AsSingle();
+        Container.BindInterfacesTo<ErrorHandler>().AsSingle();
+        Container.BindInterfacesTo<EventHandler>().AsSingle();
         
     }
 }
