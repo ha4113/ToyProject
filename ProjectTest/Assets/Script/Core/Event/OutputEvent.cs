@@ -16,6 +16,11 @@ public abstract class OutputEvent<T> : IOutputEvent
     {
         _output.Execute((T)this);
     }
+
+    public static IDisposable Subscribe(Action<T> action)
+    {
+        return _output.Subscribe(action);
+    }
     
     public static void Subscribe(IOutputEventSubscriber subscriber, MethodInfo action, CompositeDisposable disposable)
     {

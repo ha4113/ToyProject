@@ -12,12 +12,12 @@ public class Player : IPlayer
     public Player(long playerId)
     {
         PlayerId = playerId;
-        Debug.LogError(playerId);
+        Debug.Log(playerId);
     }
 
     public void Init(PlayerBinder playerBinder)
     {
         _playerBinder = playerBinder;
-        Debug.LogError("Player Init");
+        Debug.Log("Player Init");
     }
 }
