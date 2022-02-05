@@ -1,4 +1,3 @@
-using System;
 using System.Reflection;
 using UniRx;
 
@@ -17,13 +16,10 @@ public abstract class OutputEvent<T> : IOutputEvent
         _output.Execute((T)this);
     }
 
-    public static IDisposable Subscribe(Action<T> action)
+    // This Method Is Reflection Call.
+    private static void Subscribe(IOutputSubscriber subscriber, MethodInfo action)
     {
-        return _output.Subscribe(action);
-    }
-    
-    public static void Subscribe(IOutputEventSubscriber subscriber, MethodInfo action, CompositeDisposable disposable)
-    {
-        _output.Subscribe(e => action.Invoke(subscriber, new object[]{e})).AddTo(disposable);
+        _output.Subscribe(e => action.Invoke(subscriber, new object[] { e }))
+               .AddTo(subscriber.OutputDisposable);
     }
 }

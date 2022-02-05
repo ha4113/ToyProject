@@ -14,6 +14,7 @@ public class PrefabManager : IPrefabManager, IInitializable
     public async Task<T> Get<T>(string path)
         where T : MonoBehaviour, new()
     {
+        await Task.Delay(1000);
         return new GameObject().AddComponent<T>();
     }
 }

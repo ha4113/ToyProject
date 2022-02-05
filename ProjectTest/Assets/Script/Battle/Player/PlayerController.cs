@@ -1,29 +1,31 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UniRx;
 
 public interface IPlayerConroller
 {
     public IReadOnlyDictionary<long, IPlayer> Players { get; }
-    Task AddPlayer(long userId);
 }
-public class PlayerController : IPlayerConroller
+public class PlayerController : IPlayerConroller, IOutputSubscriber
 {
     public IReadOnlyDictionary<long, IPlayer> Players => _players;
+    public CompositeDisposable OutputDisposable { get; } = new();
     
-    private readonly Dictionary<long, IPlayer> _players = new Dictionary<long, IPlayer>();
+    private readonly Dictionary<long, IPlayer> _players = new();
     private readonly PlayerFactory _playerFactory;
-    
+
     public PlayerController(PlayerFactory playerFactory)
     {
         _playerFactory = playerFactory;
     }
-    
-    public async Task AddPlayer(long playerId)
+
+    [OutputSubscribe]
+    public async Task AddPlayer(OutputAddPlayer output)
     {
-        if (false == _players.ContainsKey(playerId))
+        if (false == _players.ContainsKey(output.ID))
         {
-            var player = await _playerFactory.Create(playerId);
-            _players.Add(playerId, player);
+            var player = await _playerFactory.Create(output.ID);
+            _players.Add(output.ID, player);
         }
     }
 }

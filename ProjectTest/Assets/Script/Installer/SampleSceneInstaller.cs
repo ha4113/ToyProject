@@ -7,6 +7,7 @@ public class SampleSceneInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
         Container.BindFactory<long, Task<Player>, PlayerFactory>().AsSingle();
-        Container.Bind<OutputEventSubscribe>().AsSingle().NonLazy();
+        
+        Container.BindInterfacesTo<OutputSubscribe>().AsSingle().NonLazy();
     }
 }

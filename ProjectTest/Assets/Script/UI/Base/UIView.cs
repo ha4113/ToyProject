@@ -1,14 +1,13 @@
 using System;
 using Zenject;
 
-public interface IUIView : IInitializable, IDisposable
+public interface IUIView
 {
     
 }
 
-public class UIView : IUIView
+public class UIView : IUIView, IInitializable, IDisposable
 {
     public void Initialize() { }
-
     public void Dispose() { }
 }

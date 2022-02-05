@@ -47,8 +47,8 @@
      <Compile Include="Assets\Script\Core\PacketManager.cs" />
      <Compile Include="Assets\Script\Installer\SampleSceneInstaller.cs" />
      <Compile Include="Assets\Script\Common\Protocol\Network\NetException.cs" />
-     <Compile Include="Assets\Script\Core\Event\Output\OutputIdView.cs" />
-     <Compile Include="Assets\Script\Core\Event\OutputEventSubscribe.cs" />
+     <Compile Include="Assets\Script\Core\Event\Output\OutputTest.cs" />
+     <Compile Include="Assets\Script\Core\Event\OutputSubscribe.cs" />
      <Compile Include="Assets\Script\Installer\ProjectInstaller.cs" />
      <Compile Include="Assets\Script\Util\RxUtil\EventProperty.cs" />
      <Compile Include="Assets\Script\Core\PrefabManager.cs" />
@@ -64,17 +64,17 @@
      <Compile Include="Assets\Script\UI\Base\UIView.cs" />
      <Compile Include="Assets\Script\Util\RxUtil\IEventObservable.cs" />
      <Compile Include="Assets\Script\Common\Protocol\Network\Req.cs" />
-     <Compile Include="Assets\Script\Core\Event\Input\InputStatus.cs" />
+     <Compile Include="Assets\Script\Core\Event\Input\InputTest.cs" />
      <Compile Include="Assets\Script\Util\RxUtil\IEventObservableExtension.cs" />
      <Compile Include="Assets\Script\Core\ErrorHandler.cs" />
      <Compile Include="Assets\Script\Battle\Player\PlayerBinder.cs" />
      <Compile Include="Assets\Script\Common\Protocol\Enums\ResponseResult.cs" />
-     <Compile Include="Assets\Script\Core\Event\Output\OutputNameView.cs" />
      <Compile Include="Assets\Script\Common\Core\Util\EnumUtil.cs" />
      <Compile Include="Assets\Script\Util\RxUtil\EventCommand.cs" />
      <Compile Include="Assets\Script\Battle\Player\PlayerController.cs" />
      <Compile Include="Assets\Script\Core\Event\InputEvent.cs" />
      <Compile Include="Assets\Script\Core\Event\OutputSubscribeAttribute.cs" />
+     <Compile Include="Assets\Script\Core\Event\Output\OutputAddPlayer.cs" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.2.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

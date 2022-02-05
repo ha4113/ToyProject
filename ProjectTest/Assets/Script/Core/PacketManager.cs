@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -18,15 +17,14 @@ public interface IPacketManager
     IEventObservable<ResponseResult> ResponseError { get; }
 }
 
-public class PacketManager : IOutputEventSubscriber, IPacketManager, IInitializable, IDisposable
+public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable, IDisposable
 {
-    public CompositeDisposable Disposable => _disposable;
-    
+
+    public CompositeDisposable OutputDisposable { get; } = new();
     public IEventObservable<ResponseResult> ResponseError => _packetError;
 
     private readonly EventCommand<ResponseResult> _packetError = new();
     private readonly IEventHandler _eventHandler;
-    private readonly CompositeDisposable _disposable = new();
     
     public PacketManager(IEventHandler eventHandler)
     {
@@ -35,37 +33,19 @@ public class PacketManager : IOutputEventSubscriber, IPacketManager, IInitializa
     
     public void Initialize()
     {
-        _eventHandler.AddEvent(new InputStatus(1,"James"));
-    }
-    
-    [OutputSubscribe(typeof(OutputIdView))]
-    public void OutputId(IOutputEvent output)
-    {
-        if (output is OutputIdView outputEvent)
-        {
-            Debug.Log($"IdViewEvent : {outputEvent.ID}");
-        }
-    }
-
-    [OutputSubscribe(typeof(OutputNameView))]
-    public void OutputName(IOutputEvent output)
-    {
-        if (output is OutputNameView outputEvent)
-        {
-            Debug.Log($"NameViewEvent : {outputEvent.Name}");
-        }
+        _eventHandler.AddEvent(new InputTest(1));
     }
     
     public void Dispose()
     {
         _packetError?.Dispose();
-        _disposable.Dispose();
     }
-
-    public async Task ReqTest()
+    
+    [OutputSubscribe]
+    private async Task ReqTest(OutputTest _)
     {
         var ack = await Request<GetTestReq, GetTestAck>(new GetTestReq());
-        
+        Debug.Log($"Req Result : {ack.Result}, {ack.TestValue}");
     }
 
     private async Task<TAck> Request<TReq, TAck>(TReq req)

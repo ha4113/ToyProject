@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Reflection;
+using UnityEngine;
 using Zenject;
 
 public interface IEvent { }
@@ -14,6 +14,7 @@ public class EventHandler : IEventHandler, ITickable
 {
     private readonly Queue<IInputEvent> _inputEvents = new();
     private readonly Queue<IOutputEvent> _outputEvents = new();
+
     
     public void AddEvent(IEvent e)
     {
@@ -92,7 +93,16 @@ public class EventHandler : IEventHandler, ITickable
         // TODO : 테이블 작성 후 어떻게 분업화할지 고민 필요
         switch (e)
         {
-            
+        case InputTest inputTest:
+            {
+                Debug.Log("Input Hooking");
+            }   
+            break;
+        case OutputTest outputTest:
+            {
+                Debug.Log("Output Hooking");
+            } 
+            break;
         }
     }
 }
