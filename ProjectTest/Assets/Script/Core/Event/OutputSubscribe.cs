@@ -7,7 +7,7 @@ using ModestTree;
 using UniRx;
 using Zenject;
 
-public interface IOutputSubscriber
+public interface IOutputSubscriber : IDisposable
 {
     CompositeDisposable OutputDisposable { get; }
 }

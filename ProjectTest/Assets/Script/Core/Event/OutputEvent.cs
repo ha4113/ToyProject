@@ -16,7 +16,7 @@ public abstract class OutputEvent<T> : IOutputEvent
         _output.Execute((T)this);
     }
 
-    // This Method Is Reflection Call.
+    /// [This Method Is Reflection Call]
     private static void Subscribe(IOutputSubscriber subscriber, MethodInfo action)
     {
         _output.Subscribe(e => action.Invoke(subscriber, new object[] { e }))

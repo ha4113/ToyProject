@@ -24,16 +24,14 @@ public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable, 
     public IEventObservable<ResponseResult> ResponseError => _packetError;
 
     private readonly EventCommand<ResponseResult> _packetError = new();
-    private readonly IEventHandler _eventHandler;
     
-    public PacketManager(IEventHandler eventHandler)
+    public PacketManager()
     {
-        _eventHandler = eventHandler;
     }
     
     public void Initialize()
     {
-        _eventHandler.AddEvent(new InputTest(1));
+        
     }
     
     public void Dispose()
@@ -41,13 +39,12 @@ public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable, 
         _packetError?.Dispose();
     }
     
-    [OutputSubscribe]
-    private async Task ReqTest(OutputTest _)
+    private async Task ReqTest()
     {
         var ack = await Request<GetTestReq, GetTestAck>(new GetTestReq());
         Debug.Log($"Req Result : {ack.Result}, {ack.TestValue}");
     }
-
+    
     private async Task<TAck> Request<TReq, TAck>(TReq req)
         where TReq : IReq
         where TAck : IAck

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 using Zenject;
 
 public interface IEvent { }
@@ -93,14 +92,14 @@ public class EventHandler : IEventHandler, ITickable
         // TODO : 테이블 작성 후 어떻게 분업화할지 고민 필요
         switch (e)
         {
-        case InputTest inputTest:
+        case InputAddPlayer input:
             {
-                Debug.Log("Input Hooking");
+                // Debug.Log("Input Hooking");
             }   
             break;
-        case OutputTest outputTest:
+        case OutputAddPlayer output:
             {
-                Debug.Log("Output Hooking");
+                // Debug.Log("Output Hooking");
             } 
             break;
         }

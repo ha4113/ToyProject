@@ -13,6 +13,7 @@ public class PlayerController : IPlayerConroller, IOutputSubscriber
     
     private readonly Dictionary<long, IPlayer> _players = new();
     private readonly PlayerFactory _playerFactory;
+    private IOutputSubscriber _outputSubscriberImplementation;
 
     public PlayerController(PlayerFactory playerFactory)
     {
@@ -20,7 +21,7 @@ public class PlayerController : IPlayerConroller, IOutputSubscriber
     }
 
     [OutputSubscribe]
-    public async Task AddPlayer(OutputAddPlayer output)
+    private async Task AddPlayer(OutputAddPlayer output)
     {
         if (false == _players.ContainsKey(output.ID))
         {
@@ -28,4 +29,6 @@ public class PlayerController : IPlayerConroller, IOutputSubscriber
             _players.Add(output.ID, player);
         }
     }
+
+    public void Dispose() { OutputDisposable.Dispose(); }
 }
