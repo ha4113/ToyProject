@@ -3,7 +3,7 @@
 ---
 최초 설정
 ---
-아래 툴을 실행하여 각종 폴더들을 연결하여야 합니다.
+아래 툴을 실행하여 각종 폴더들을 연결하여야 한다
  - Tools/CreateLinkWin.bat(Windows OS)
  - Tools/CreateLinkMac.command (Mac OS)
 
