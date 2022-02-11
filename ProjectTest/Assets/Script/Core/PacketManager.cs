@@ -3,6 +3,8 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Core.Table;
+using Common.Core.Table.Util;
 using Common.Protocol.Attributes;
 using Common.Protocol.Enums;
 using Common.Protocol.Network;
@@ -31,7 +33,6 @@ public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable, 
     
     public void Initialize()
     {
-        
     }
     
     public void Dispose()

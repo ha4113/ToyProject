@@ -1,3 +1,6 @@
+using System.Reflection;
+using Common.Core.Table;
+using Common.Core.Table.Util;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +52,8 @@ namespace Server
                 endpoints.MapControllers();
                 endpoints.MapCustomRoutes();
             });
+
+            TableReader.Read(TableReader.TABLE_PATH);
         }
     }
 }

@@ -3,12 +3,15 @@ using UniRx;
 
 public interface IOutputEvent : IEvent
 {
+    private static readonly string _subscribeName;
+    static string SubscribeName => _subscribeName;
     void Execute();
 }
 
 public abstract class OutputEvent<T> : IOutputEvent
     where T : OutputEvent<T>
 {
+    public static string SubscribeName => nameof(Subscribe);
     private static readonly EventCommand<T> _output = new();
 
     public virtual void Execute()

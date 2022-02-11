@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Common.Core.Table;
+using Common.Core.Table.Util;
 using Common.Protocol.Enums;
 using Common.Protocol.Network;
+using Serilog;
 using Server.DBProtocol;
 using Server.DBProtocol.Schema;
 
@@ -29,7 +32,8 @@ namespace Server.NetworkProtocol.Route
 
             // 루프에서 이동할 레이블 만들기.  
             var label = Expression.Label(typeof(int));
-
+            var test = DefMgr<DefTest>.Get(1);
+            Console.WriteLine(test.Name);
             // 메서드 본문 만들기.  
             var block = Expression.Block(
                 // 지역 변수 추가.  

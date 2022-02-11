@@ -15,7 +15,7 @@ public interface IOutputSubscriber : IDisposable
 public class OutputSubscribe : IDisposable, IInitializable
 {
     private readonly List<IOutputSubscriber> _outputSubscribers;
-    
+    private const int MAX_OUTPUT_PARAM_COUNT = 1;
     public OutputSubscribe(List<IOutputSubscriber> outputSubscribers)
     {
         _outputSubscribers = outputSubscribers;
@@ -34,7 +34,7 @@ public class OutputSubscribe : IDisposable, IInitializable
                 }
 
                 var parameters = method.GetParameters();
-                if (parameters.Length != 1)
+                if (parameters.Length != MAX_OUTPUT_PARAM_COUNT)
                 {
                     throw new ArgumentException($"To Many Output : {method.Name}");
                 }
@@ -46,7 +46,7 @@ public class OutputSubscribe : IDisposable, IInitializable
                 }
 
                 output.GetParentTypes().First()
-                      .GetMethod("Subscribe", BindingFlags.NonPublic | BindingFlags.Static)
+                      .GetMethod(IOutputEvent.SubscribeName, BindingFlags.NonPublic | BindingFlags.Static)
                       ?.Invoke(null, new object[] { subscriber, method });
             }
         }

@@ -1,4 +1,0 @@
-Assets\Script\Common\Protocol\Attributes,..\WebApiServer\Protocol\Attributes
-Assets\Script\Common\Protocol\Enums,..\WebApiServer\Protocol\Enums
-Assets\Script\Common\Protocol\Network,..\WebApiServer\Protocol\Network
-Assets\Script\Common\Core\Util,..\WebApiServer\Core\Util

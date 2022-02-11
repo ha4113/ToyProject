@@ -1,0 +1,6 @@
+..\ProjectTest\Assets\Script\Common\Protocol,..\WebApiServer\Protocol\Protocol
+..\ProjectTest\Assets\Script\Common\Core,..\WebApiServer\Core\Core
+..\ProjectTest\Assets\Resources\Table\Client,..\Table\Client
+..\ProjectTest\Assets\Resources\Table\Common,..\Table\Common
+..\WebApiServer\WebApiServer\TableData\Server,..\Table\Server
+..\WebApiServer\WebApiServer\TableData\Common,..\Table\Common
