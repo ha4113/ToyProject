@@ -7,7 +7,7 @@ namespace Common.Core.Table.Util
 {
     public static class TableReader
     {
-        public const string TABLE_PATH = "../../../../../Table/";
+        public const string TABLE_PATH = "TableData/";
         private const string TABLE_FORMAT = "*.csv";
         
         public static void Read(string tablePath)

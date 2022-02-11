@@ -5,7 +5,6 @@ ProjectTest/obj
 ProjectTest/Temp
 ProjectTest/Assets/Script/Common
 ProjectTest/Assets/Resources/Table
-*.csproj
 .DS_Store
 *.DotSettings
 WebApiServer/WebApiServer/obj
@@ -16,3 +15,4 @@ WebApiServer/Protocol/bin
 WebApiServer/Core/obj
 WebApiServer/.idea
 WebApiServer/.vs
+WebApiServer/Core/bin
