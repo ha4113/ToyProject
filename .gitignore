@@ -14,3 +14,5 @@ ProjectTest/UserSettings
 WebApiServer/Protocol/obj
 WebApiServer/Protocol/bin
 WebApiServer/Core/obj
+WebApiServer/.idea
+WebApiServer/.vs
