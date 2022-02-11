@@ -1,12 +1,9 @@
-using System.Reflection;
-using Common.Core.Table;
 using Common.Core.Table.Util;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Server.NetworkProtocol;
 
 namespace Server
@@ -53,7 +50,7 @@ namespace Server
                 endpoints.MapCustomRoutes();
             });
 
-            TableReader.Read(TableReader.TABLE_PATH);
+            TableReader.Read("TableData/");
         }
     }
 }
