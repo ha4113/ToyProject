@@ -10,6 +10,7 @@ ECHO CREATING LINKS...
 FOR /F "tokens=1,2 delims=," %%G IN (LinkList.txt) DO (
   ECHO * Creating symbolink link: %%G
   RMDIR /S /Q "%~dp0%%G"
+  MKDIR "%~dp0%%G/.."
   MKLINK /d "%~dp0%%G" "%~dp0%%H"
   ECHO.
 )
