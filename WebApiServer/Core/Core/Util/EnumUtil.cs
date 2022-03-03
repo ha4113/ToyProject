@@ -28,7 +28,6 @@ namespace Common.Core.Util
         {
             return e.ToValue<T, string, StringValueAttribute>();
         }
-        
     }
     
     public class StringValueAttribute : Attribute, EnumUtil.IValueAttribute<string>

@@ -2,23 +2,29 @@ using Common.Core.Table.Util;
 
 namespace Common.Core.Table
 {
-    public class DefClientOnly : IDef
+    public class ClientOnly : ITable
     {
         public string IconName { get; }
 
-        public DefClientOnly(string iconName)
+        public ClientOnly(string iconName)
         {
             IconName = iconName;
         }
+
+        public void PostProcess()
+        {
+        }
+
+        public void Valid() { }
     }
     
-    internal class ClientOnly : ITable
+    internal class ClientOnlyCsv : ICsv
     {
         public long Id { get; set; }
         public string IconName { get; set; }
         public void Build()
         {
-            DefMgr<DefClientOnly>.Add(Id, new DefClientOnly(IconName));
+            Table<ClientOnly>.Add(Id, new ClientOnly(IconName));
         }
     }
 }

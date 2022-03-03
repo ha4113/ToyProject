@@ -1,10 +1,12 @@
 using Common.Core.Table.Util;
+using Common.Core.Util;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Server.NetworkProtocol;
+using Server.Util;
 
 namespace Server
 {
@@ -50,7 +52,10 @@ namespace Server
                 endpoints.MapCustomRoutes();
             });
 
-            TableReader.Read("TableData/");
+            var logger = new Logger();
+            logger.Init();
+            Log.InitLog(logger);
+            TableReader.Read("TableData/", TableReadCategory.SERVER);
         }
     }
 }

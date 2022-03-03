@@ -312,6 +312,9 @@
      <Reference Include="UnityEditor.iOS.Extensions">
      <HintPath>/Applications/Unity/Hub/Editor/2021.2.4f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Packages/Microsoft.Bcl.AsyncInterfaces.1.0.0/lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+     </Reference>
      <Reference Include="Zenject-usage">
      <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
      </Reference>
@@ -345,23 +348,20 @@
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
      <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
      </Reference>
+     <Reference Include="CsvHelper">
+     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Packages/CsvHelper.27.2.1/lib/netstandard2.0/CsvHelper.dll</HintPath>
+     </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
-     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
      </Reference>
      <Reference Include="NugetForUnity">
      <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/NuGet/Editor/NugetForUnity.dll</HintPath>
      </Reference>
-     <Reference Include="Microsoft.Bcl.AsyncInterfaces">
-     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Packages/Microsoft.Bcl.AsyncInterfaces.1.0.0/lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
      </Reference>
      <Reference Include="Microsoft.Bcl.HashCode">
      <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Packages/Microsoft.Bcl.HashCode.1.0.0/lib/netstandard2.0/Microsoft.Bcl.HashCode.dll</HintPath>
-     </Reference>
-     <Reference Include="CsvHelper">
-     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Assets/Packages/CsvHelper.27.2.1/lib/netstandard2.0/CsvHelper.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
      <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>

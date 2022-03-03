@@ -1,6 +1,6 @@
 namespace Common.Core.Table.Util
 {
-    public interface ITable
+    public interface ICsv
     {
         void Build();
     }

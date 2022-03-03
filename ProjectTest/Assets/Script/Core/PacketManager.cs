@@ -33,6 +33,7 @@ public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable, 
     
     public void Initialize()
     {
+        ReqTest();
     }
     
     public void Dispose()
