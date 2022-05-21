@@ -55,7 +55,7 @@ namespace Server
             var logger = new Logger();
             logger.Init();
             Log.InitLog(logger);
-            TableReader.Read("TableData/", TableCategory.SERVER, TableCategory.COMMON);
+            TableReader.Read("TableData/", TableCategory.SERVER | TableCategory.COMMON);
         }
     }
 }
