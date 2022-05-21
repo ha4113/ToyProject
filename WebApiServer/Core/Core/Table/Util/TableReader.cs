@@ -12,12 +12,12 @@ namespace Common.Core.Table.Util
     {
         private const string TABLE_FORMAT = "*.csv";
         
-        public static void Read(string tablePath, TableReadCategory readCategory)
+        public static void Read(string tablePath, TableCategory readCategories)
         {
-            var csvTypes = typeof(ICsv).Assembly.GetTypes();
+            var csvTypes = typeof(IRow).Assembly.GetTypes();
             foreach (var csvType in csvTypes)
             {
-                if (!csvType.IsClass || csvType.GetInterfaces().All(i => i != typeof(ICsv)))
+                if (!csvType.IsClass || csvType.GetInterfaces().All(i => i != typeof(IRow)))
                 {
                     continue;
                 }
@@ -28,13 +28,12 @@ namespace Common.Core.Table.Util
                     continue;
                 }
 
-                if ((readCategory & tableInfoAttr.TableReadCategory) == 0)
+                if ((readCategories & tableInfoAttr.TableCategory) == 0)
                 {
                     continue;
                 }
                 
-                var tableName = tableInfoAttr.TableName;
-                var tables = Directory.GetFiles(tablePath, $"{tableName}{TABLE_FORMAT}", SearchOption.AllDirectories);
+                var tables = Directory.GetFiles(tablePath, $"{tableInfoAttr.Table.Name}{TABLE_FORMAT}", SearchOption.AllDirectories);
                 
                 foreach (var fileName in tables)
                 {
@@ -43,7 +42,7 @@ namespace Common.Core.Table.Util
                     var records = csv.GetRecords(csvType);
                     Parallel.ForEach(records, record =>
                     {
-                        if (record is ICsv row)
+                        if (record is IRow row)
                         {
                             row.Build();
                         }
@@ -52,7 +51,7 @@ namespace Common.Core.Table.Util
             }
 
             var tableTypes = typeof(ITable).Assembly.GetTypes();
-            var generic = typeof(Table<>);
+            var generic = typeof(TableContainer<>);
             var validCheckMethods = new List<MethodInfo>();
             foreach (var tableType in tableTypes)
             {
@@ -63,8 +62,8 @@ namespace Common.Core.Table.Util
                 
                 var typeArgs = new[]{ tableType };
                 var constructed = generic.MakeGenericType(typeArgs);
-                var postProcessMethod = constructed.GetMethod("PostProcess", BindingFlags.NonPublic | BindingFlags.Static);
-                var validCheckMethod = constructed.GetMethod("ValidCheck", BindingFlags.NonPublic | BindingFlags.Static);
+                var postProcessMethod = constructed.GetMethod(ITableContainer.PostProcessName, BindingFlags.NonPublic | BindingFlags.Static);
+                var validCheckMethod = constructed.GetMethod(ITableContainer.ValidCheckName, BindingFlags.NonPublic | BindingFlags.Static);
                 
                 if (postProcessMethod == null || validCheckMethod == null)
                 {

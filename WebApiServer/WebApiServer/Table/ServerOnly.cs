@@ -17,17 +17,17 @@ namespace Common.Core.Table
         }
 
         public void Valid() {  }
-    }
 
-    [TableInfo(TableReadCategory.SERVER_ONLY, nameof(ServerOnly))]
-    internal class ServerOnlyCsv : ICsv
-    {
-        public int Id { get; set; }
-        public string IconName { get; set; }
-
-        public void Build()
+        [TableInfo(TableCategory.SERVER, typeof(ServerOnly))]
+        private class Row : IRow
         {
-            Table<ServerOnly>.Add(Id, new ServerOnly(IconName));
+            public int Id { get; set; }
+            public string IconName { get; set; }
+
+            public void Build()
+            {
+                TableContainer<ServerOnly>.Add(Id, new ServerOnly(IconName));
+            }
         }
     }
 }

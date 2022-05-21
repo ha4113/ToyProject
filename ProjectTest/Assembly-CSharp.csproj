@@ -25,7 +25,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Temp\Bin\Debug\</OutputPath>
+    <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
     <DefineConstants>UNITY_2021_2_4;UNITY_2021_2;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,56 +41,55 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\Common\Protocol\Attributes\ReqAttribute.cs" />
-     <Compile Include="Assets\Script\Common\Core\Table\Util\TableContainer.cs" />
-     <Compile Include="Assets\Script\Common\Core\Util\Singleton.cs" />
-     <Compile Include="Assets\Script\Util\MonoUtil\BindingComponent.cs" />
-     <Compile Include="Assets\Script\Common\Core\Table\Common\Test.cs" />
-     <Compile Include="Assets\Script\Core\PacketManager.cs" />
-     <Compile Include="Assets\Script\Installer\SampleSceneInstaller.cs" />
-     <Compile Include="Assets\Script\Common\Protocol\Network\NetException.cs" />
-     <Compile Include="Assets\Script\Common\Core\Table\ServerOnly\ServerOnly.cs" />
-     <Compile Include="Assets\Script\Core\Event\OutputSubscribe.cs" />
-     <Compile Include="Assets\Script\Installer\ProjectInstaller.cs" />
-     <Compile Include="Assets\Script\Common\Core\Table\ClientOnly\ClientOnly.cs" />
-     <Compile Include="Assets\Script\Util\RxUtil\EventProperty.cs" />
-     <Compile Include="Assets\Script\Core\PrefabManager.cs" />
-     <Compile Include="Assets\Script\Common\Protocol\Enums\HttpHeader.cs" />
-     <Compile Include="Assets\Script\UI\Base\UIController.cs" />
-     <Compile Include="Assets\Script\Common\Core\Table\Util\TableReader.cs" />
-     <Compile Include="Assets\Script\Battle\Player\Player.cs" />
-     <Compile Include="Assets\Script\Util\RxUtil\Stubs.cs" />
-     <Compile Include="Assets\Script\Common\Protocol\Network\Ack.cs" />
-     <Compile Include="Assets\Script\Battle\Skill\Skill.cs" />
-     <Compile Include="Assets\Script\Core\Event\OutputEvent.cs" />
-     <Compile Include="Assets\Script\Core\Event\EventHandler.cs" />
-     <Compile Include="Assets\Script\Battle\Player\PlayerFactory.cs" />
-     <Compile Include="Assets\Script\UI\Base\UIView.cs" />
-     <Compile Include="Assets\Script\Util\RxUtil\IEventObservable.cs" />
-     <Compile Include="Assets\Script\Common\Protocol\Network\Req.cs" />
-     <Compile Include="Assets\Script\Core\Event\Input\InputAddPlayer.cs" />
-     <Compile Include="Assets\Script\Util\RxUtil\IEventObservableExtension.cs" />
-     <Compile Include="Assets\Script\Common\Core\Table\Util\Csv.cs" />
-     <Compile Include="Assets\Script\Core\ErrorHandler.cs" />
-     <Compile Include="Assets\Script\Battle\Player\PlayerBinder.cs" />
-     <Compile Include="Assets\Script\Common\Core\Table\Util\TableInfoAttribute.cs" />
-     <Compile Include="Assets\Script\Common\Protocol\Enums\ResponseResult.cs" />
-     <Compile Include="Assets\Script\Core\Event\Output\OutputAddPlayer.cs" />
-     <Compile Include="Assets\Script\Core\Event\TableLoader.cs" />
-     <Compile Include="Assets\Script\Common\Core\Util\EnumUtil.cs" />
-     <Compile Include="Assets\Script\Util\RxUtil\EventCommand.cs" />
-     <Compile Include="Assets\Script\Battle\Player\PlayerController.cs" />
-     <Compile Include="Assets\Script\Core\Event\OutputSubscribeAttribute.cs" />
-     <Compile Include="Assets\Script\Core\Event\InputEvent.cs" />
-     <Compile Include="Assets\Script\Util\Log\Logger.cs" />
-     <Compile Include="Assets\Script\Common\Core\Util\Log.cs" />
-     <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.xml" />
-     <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\version.txt" />
-     <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\useSharedDesignerContext.txt" />
-     <None Include="Assets\Packages\CsvHelper.27.2.1\lib\netstandard2.0\CsvHelper.xml" />
-     <None Include="Assets\Packages\Microsoft.Bcl.HashCode.1.0.0\lib\netstandard2.0\Microsoft.Bcl.HashCode.xml" />
-     <None Include="Assets\Packages\Microsoft.Bcl.HashCode.1.0.0\useSharedDesignerContext.txt" />
-     <None Include="Assets\Packages\Microsoft.Bcl.HashCode.1.0.0\version.txt" />
+     <Compile Include="Assets/Script/Common/Protocol/Attributes/ReqAttribute.cs" />
+     <Compile Include="Assets/Script/Common/Core/Table/Util/TableContainer.cs" />
+     <Compile Include="Assets/Script/Common/Core/Util/Singleton.cs" />
+     <Compile Include="Assets/Script/Util/MonoUtil/BindingComponent.cs" />
+     <Compile Include="Assets/Script/Common/Core/Table/Common/Test.cs" />
+     <Compile Include="Assets/Script/Core/PacketManager.cs" />
+     <Compile Include="Assets/Script/Installer/SampleSceneInstaller.cs" />
+     <Compile Include="Assets/Script/Common/Core/Util/Log.cs" />
+     <Compile Include="Assets/Script/Common/Protocol/Network/NetException.cs" />
+     <Compile Include="Assets/Script/Core/Event/OutputSubscribe.cs" />
+     <Compile Include="Assets/Script/Installer/ProjectInstaller.cs" />
+     <Compile Include="Assets/Script/Core/Table/ClientOnly.cs" />
+     <Compile Include="Assets/Script/Util/RxUtil/EventProperty.cs" />
+     <Compile Include="Assets/Script/Core/PrefabManager.cs" />
+     <Compile Include="Assets/Script/Common/Protocol/Enums/HttpHeader.cs" />
+     <Compile Include="Assets/Script/UI/Base/UIController.cs" />
+     <Compile Include="Assets/Script/Common/Core/Table/Util/TableReader.cs" />
+     <Compile Include="Assets/Script/Battle/Player/Player.cs" />
+     <Compile Include="Assets/Script/Util/RxUtil/Stubs.cs" />
+     <Compile Include="Assets/Script/Common/Protocol/Network/Ack.cs" />
+     <Compile Include="Assets/Script/Battle/Skill/Skill.cs" />
+     <Compile Include="Assets/Script/Core/Event/OutputEvent.cs" />
+     <Compile Include="Assets/Script/Core/Event/EventHandler.cs" />
+     <Compile Include="Assets/Script/Battle/Player/PlayerFactory.cs" />
+     <Compile Include="Assets/Script/UI/Base/UIView.cs" />
+     <Compile Include="Assets/Script/Util/RxUtil/IEventObservable.cs" />
+     <Compile Include="Assets/Script/Common/Protocol/Network/Req.cs" />
+     <Compile Include="Assets/Script/Core/Event/Input/InputAddPlayer.cs" />
+     <Compile Include="Assets/Script/Util/RxUtil/IEventObservableExtension.cs" />
+     <Compile Include="Assets/Script/Util/Log/Logger.cs" />
+     <Compile Include="Assets/Script/Core/ErrorHandler.cs" />
+     <Compile Include="Assets/Script/Battle/Player/PlayerBinder.cs" />
+     <Compile Include="Assets/Script/Common/Core/Table/Util/TableInfoAttribute.cs" />
+     <Compile Include="Assets/Script/Common/Protocol/Enums/ResponseResult.cs" />
+     <Compile Include="Assets/Script/Core/Event/Output/OutputAddPlayer.cs" />
+     <Compile Include="Assets/Script/Core/Event/TableLoader.cs" />
+     <Compile Include="Assets/Script/Common/Core/Util/EnumUtil.cs" />
+     <Compile Include="Assets/Script/Util/RxUtil/EventCommand.cs" />
+     <Compile Include="Assets/Script/Battle/Player/PlayerController.cs" />
+     <Compile Include="Assets/Script/Core/Event/OutputSubscribeAttribute.cs" />
+     <Compile Include="Assets/Script/Core/Event/InputEvent.cs" />
+     <Compile Include="Assets/Script/Common/Core/Table/Util/Row.cs" />
+     <None Include="Assets/Packages/Microsoft.Bcl.AsyncInterfaces.1.0.0/lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml" />
+     <None Include="Assets/Packages/Microsoft.Bcl.AsyncInterfaces.1.0.0/version.txt" />
+     <None Include="Assets/Packages/Microsoft.Bcl.AsyncInterfaces.1.0.0/useSharedDesignerContext.txt" />
+     <None Include="Assets/Packages/CsvHelper.27.2.1/lib/netstandard2.0/CsvHelper.xml" />
+     <None Include="Assets/Packages/Microsoft.Bcl.HashCode.1.0.0/lib/netstandard2.0/Microsoft.Bcl.HashCode.xml" />
+     <None Include="Assets/Packages/Microsoft.Bcl.HashCode.1.0.0/useSharedDesignerContext.txt" />
+     <None Include="Assets/Packages/Microsoft.Bcl.HashCode.1.0.0/version.txt" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.2.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -822,6 +821,21 @@
      </Reference>
      <Reference Include="Unity.SysrootPackage.Editor">
      <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UniTask.TextMeshPro">
+     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Library/ScriptAssemblies/UniTask.TextMeshPro.dll</HintPath>
+     </Reference>
+     <Reference Include="UniTask.Addressables">
+     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Library/ScriptAssemblies/UniTask.Addressables.dll</HintPath>
+     </Reference>
+     <Reference Include="UniTask.DOTween">
+     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Library/ScriptAssemblies/UniTask.DOTween.dll</HintPath>
+     </Reference>
+     <Reference Include="UniTask.Linq">
+     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Library/ScriptAssemblies/UniTask.Linq.dll</HintPath>
+     </Reference>
+     <Reference Include="UniTask">
+     <HintPath>/Users/lsy/Documents/Project/ToyProject/ProjectTest/Library/ScriptAssemblies/UniTask.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

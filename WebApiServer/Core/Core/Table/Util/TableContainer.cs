@@ -3,19 +3,31 @@ using System.Collections.Generic;
 
 namespace Common.Core.Table.Util
 {
-    public interface ITable
+    public interface IReadOnlyTable
     {
-        void PostProcess();
+        
+    }
+    
+    public interface ITable : IReadOnlyTable
+    { 
+        void PostProcess(); 
         void Valid();
     }
 
-    public interface ITableContainer{}
-    public class Table<TValue> : ITableContainer
+    public interface ITableContainer
+    {
+        static string PostProcessName => nameof(PostProcess);
+        static string ValidCheckName => nameof(ValidCheck); 
+        void PostProcess(); 
+        void ValidCheck();
+    }
+
+    public class TableContainer<TValue> : ITableContainer
         where TValue : class, ITable
     {
         private static readonly Dictionary<long, TValue> _dic = new();
 
-        public static void Add(long key, TValue value)
+        public static void Add(long key, TValue def)
         {
             lock (_dic)
             {
@@ -23,7 +35,8 @@ namespace Common.Core.Table.Util
                 {
                     throw new ArgumentException($"SameKey : {key}");
                 }
-                _dic.Add(key, value);
+
+                _dic.Add(key, def);
             }
         }
 
@@ -35,19 +48,19 @@ namespace Common.Core.Table.Util
             }
         }
 
-        public static TValue Get(long key)
-        {
-            return TryGet(key, out var def) ? def : null;
-        }
+        public static TValue Get(long key) { return TryGet(key, out var def) ? def : null; }
 
         private static void PostProcess()
         {
             lock (_dic)
             {
-                foreach (var (_, def) in _dic) { def.PostProcess(); }
+                foreach (var (_, def) in _dic)
+                {
+                    def.PostProcess();
+                }
             }
         }
-        
+
         private static void ValidCheck()
         {
             lock (_dic)
@@ -66,5 +79,8 @@ namespace Common.Core.Table.Util
                 }
             }
         }
+
+        void ITableContainer.PostProcess() => PostProcess();
+        void ITableContainer.ValidCheck() => ValidCheck();
     }
 }

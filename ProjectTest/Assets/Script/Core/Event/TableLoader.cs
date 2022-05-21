@@ -5,6 +5,6 @@ public class TableLoader : IInitializable
 {
     public void Initialize()
     {
-        TableReader.Read("Assets/Resources/Table/", TableReadCategory.CLIENT);
+        TableReader.Read("Assets/Resources/Table/", TableCategory.CLIENT | TableCategory.COMMON);
     }
 }

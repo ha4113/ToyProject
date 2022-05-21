@@ -1,6 +1,6 @@
 namespace Common.Core.Table.Util
 {
-    public interface ICsv
+    public interface IRow
     {
         void Build();
     }

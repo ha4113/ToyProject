@@ -3,23 +3,20 @@ using System;
 namespace Common.Core.Table.Util
 {
     [Flags]
-    public enum TableReadCategory
+    public enum TableCategory
     {
-        NONE,
-        COMMON =  1 << 1,
-        CLIENT_ONLY = 2 << 1,
-        SERVER_ONLY = 3 << 1,
-        CLIENT = COMMON | CLIENT_ONLY,
-        SERVER = COMMON | SERVER_ONLY
+        COMMON = 1 << 1,
+        CLIENT = 2 << 1,
+        SERVER = 3 << 1,
     }
     public class TableInfoAttribute : Attribute
     {
-        public readonly TableReadCategory TableReadCategory;
-        public readonly string TableName;
-        public TableInfoAttribute(TableReadCategory tableReadCategory, string tableName)
+        public readonly TableCategory TableCategory;
+        public readonly Type Table;
+        public TableInfoAttribute(TableCategory tableCategory, Type table)
         {
-            TableReadCategory = tableReadCategory;
-            TableName = tableName;
+            TableCategory = tableCategory;
+            Table = table;
         }
     }
 }

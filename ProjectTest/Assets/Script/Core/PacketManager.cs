@@ -2,12 +2,12 @@ using System;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using Common.Core.Table;
 using Common.Core.Table.Util;
 using Common.Protocol.Attributes;
 using Common.Protocol.Enums;
 using Common.Protocol.Network;
+using Cysharp.Threading.Tasks;
 using ModestTree;
 using Newtonsoft.Json;
 using UniRx;
@@ -19,21 +19,18 @@ public interface IPacketManager
     IEventObservable<ResponseResult> ResponseError { get; }
 }
 
-public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable, IDisposable
+public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable
 {
 
     public CompositeDisposable OutputDisposable { get; } = new();
     public IEventObservable<ResponseResult> ResponseError => _packetError;
 
     private readonly EventCommand<ResponseResult> _packetError = new();
-    
-    public PacketManager()
-    {
-    }
-    
+
     public void Initialize()
     {
-        ReqTest();
+        ReqTest().Forget();
+        var a = TableContainer<ClientOnly>.Get(1);
     }
     
     public void Dispose()
@@ -41,13 +38,13 @@ public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable, 
         _packetError?.Dispose();
     }
     
-    private async Task ReqTest()
+    private async UniTask ReqTest()
     {
         var ack = await Request<GetTestReq, GetTestAck>(new GetTestReq());
         Debug.Log($"Req Result : {ack.Result}, {ack.TestValue}");
     }
     
-    private async Task<TAck> Request<TReq, TAck>(TReq req)
+    private async UniTask<TAck> Request<TReq, TAck>(TReq req)
         where TReq : IReq
         where TAck : IAck
     {
@@ -87,7 +84,7 @@ public class PacketManager : IOutputSubscriber, IPacketManager, IInitializable, 
         }
         catch (Exception e)
         {
-            if (!(e is NetException netException))
+            if (e is not NetException netException)
             {
                 throw;
             }
